@@ -1,0 +1,5 @@
+﻿<asp:Button SkinId="SmallDrugItemButton" runat="server"
+Font-Name="Arial"
+Font-Size="12px" 
+Vertical-Align="center" />
+

@@ -1,0 +1,129 @@
+.DrugItemGrids 
+{ 
+    border-style: none;
+    border-color: black;
+    border-width: 1px;
+    font-size: 10pt;
+    font-family:Arial;
+    margin: 3px;
+    text-align:left;
+    background-color:White;
+}
+
+.DrugItemGrids td
+{
+    padding: 3px 3px 3px 3px;
+    vertical-align:middle;
+    border-left: 1px solid black;
+	border-right: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.DrugItemGridHeaders {
+    background-color: #8b8dbb;
+  
+}
+
+.DrugItemGridItems
+{
+    background-color:#F7F6F3;
+    vertical-align:top;   
+}
+
+.DrugItemGridAltItems
+{
+    background-color: white;
+}
+
+.DrugItemFooterStyle
+{
+    background-color: #5D7B9D;
+    font-weight: bold;    
+}
+
+.DrugItemEditRowStyle
+{
+    border-style: solid;
+    background-color: #E0FAD8;
+    font-size: 10pt;
+    font-family:Arial;
+}
+
+.DrugItemMultilineInEditMode
+{
+    font-size: 10pt;
+    font-family:Arial;
+}
+
+.DrugItemSelectedCellStyle td
+{
+    background-color: #E3FBDD;
+    font-size: 10pt;
+    border-width: 1px;
+    border-color:Black;
+    border-left-color:inherit;
+    border-right-color:inherit;
+    border-top-color:inherit;
+    border-bottom-color:inherit;
+}
+
+.DrugItemHighlightedRowStyle
+{
+    border-width: 2px;
+}
+
+.DrugItemEditCellStyle
+{
+    border: none 0px;
+}
+
+.ForceBoundFieldWidth
+{
+     width: 120px;
+}
+
+.SmallVerticalText 
+{
+    width: 24px;
+    height: 47px;
+    overflow: hidden;
+    vertical-align: middle;
+    text-align: left;
+    margin: 0px 0px 0px 0px;
+    white-space: nowrap;
+    font-size: 8pt;
+    font-weight: bold;
+    transform: rotate(-90deg);
+}
+
+
+div#DrugItemsGridViewDiv
+{
+    overflow:auto;
+}
+
+.HighlightedMissingData
+{
+    background-color: #F7F1BF;
+}
+
+.HighlightedOutOfRangeData
+{
+    background-color: #FFD6C6;
+}
+
+.HighlightedTPRWithoutBasePrice
+{
+    background-color: #C2DCFD;
+}
+
+.ContextMenuEnabled
+{
+	color: Black;
+}
+
+.ContextMenuDisabled
+{
+	color: Red;
+}

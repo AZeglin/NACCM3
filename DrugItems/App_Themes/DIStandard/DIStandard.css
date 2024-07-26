@@ -1,0 +1,139 @@
+﻿body {
+}
+.DrugItemDetails
+{ 
+    border: solid 1px #FFFFFF; 
+    font-size: 13px;
+    font-family:Arial;
+    margin: 3px;
+    border:1px;
+    text-align:left;
+    background-color:#F7F6F3;
+}
+
+.DrugItemHeaderText
+{
+    font-size: 13px;
+    font-family:Arial;
+    font-weight:bold;
+}
+
+.DrugItemRegularText
+{
+    font-size: 13px;
+    font-family:Arial;
+    font-weight:normal;
+}
+
+.DrugItemSmallText
+{
+    font-size: 10px;
+    font-family:Arial;
+    font-weight:normal;
+}
+
+.VerySmallText
+{
+    font-size: 9px;
+    font-family:Arial;
+    font-weight:normal;
+}
+
+.DrugItemDetailsEditArea
+{
+    background-color: #E0FAD8;
+    font-size: 13px;
+    font-family:Arial;
+    font-weight:normal;
+}
+
+.DrugItemDetailsFooterArea
+{
+    background-color: #E0FAD8;
+    font-size: 12px;
+    font-family:Arial;
+}
+
+.DrugItemPriceDetails
+{ 
+    border: solid 1px #FFFFFF; 
+    font-size: 13px;
+    font-family:Arial;
+    margin: 3px;
+    border:1px;
+    text-align:left;
+    background-color:#F7F6F3;
+}
+
+.DrugItemPriceDetailsEditArea
+{
+    background-color: #E0FAD8;
+    font-size: 13px;
+    font-family:Arial;
+    font-weight:normal;
+}
+
+.DrugItemPriceDetailsFooterArea
+{
+    background-color: #E0FAD8;
+    font-size: 12px;
+    font-family:Arial;
+}
+
+.CustomComboBoxStyle .ajax__combobox_textboxcontainer input 
+{
+    margin-right: 0px;
+    padding-right: 0px;
+}
+
+.CustomComboBoxStyle .ajax__combobox_buttoncontainer button
+{
+   margin-left: 0px;
+   padding-left: 0px;
+   text-anchor:middle;
+}
+
+.ButtonWrapText
+{
+    white-space: normal;
+}
+
+.ButtonWrapTextSmaller
+{
+    font-size:smaller;
+    white-space: normal;
+}
+
+.DrugItemRadioButtonList
+{
+    font-size: 13px;
+    font-family:Arial;
+    font-weight:normal;
+	white-space:nowrap;
+	text-wrap:none;
+    vertical-align:middle;
+}
+
+.DrugItemSearchText
+{
+    font-size: 13px;
+    font-family:Arial;
+    font-weight:normal;
+    white-space:nowrap;
+}
+
+table.RadioButtonListWithProperWrap input
+ {    
+    float: left;
+	font-size: 13px;
+	font-family:Arial;
+	font-weight:normal;
+	white-space:nowrap;
+	vertical-align:middle;
+ }
+
+ table.RadioButtonListWithProperWrap label
+ {    
+	margin-left: 25px;
+	display: block;
+ }
