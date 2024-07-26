@@ -1,0 +1,332 @@
+.ItemDetails
+{ 
+    border: solid 1px #FFFFFF; 
+    font-size: 12px;
+    font-family:Arial;
+    margin: 3px;
+    border:1px;
+    text-align:left;
+    background-color:#F7F6F3;
+}
+
+.PageHeaderText
+{
+    font-size:x-large;
+    font-family:Arial;
+}
+
+.UnderHeaderText
+{
+    font-size: 14px;
+    font-family:Arial;
+    font-weight:normal;
+}
+
+.HeaderText
+{
+    font-size: 13px;
+    font-family:Arial;
+    font-weight:bold;
+}
+
+.FieldLabelText
+{
+    font-size: 13px;
+    font-family:Arial;
+    font-weight:normal;
+}
+
+.RegularText
+{
+    font-size: 12px;
+    font-family:Arial;
+    font-weight:normal;
+}
+
+.RegularBoldText
+{
+    font-size: 12px;
+    font-family:Arial;
+    font-weight:bold;
+}
+
+.SmallText
+{
+    font-size: 9pt;
+    font-family:Arial;
+    font-weight:normal;
+}
+
+.SmallBoldText
+{
+    font-size: 9pt;
+    font-family:Arial;
+    font-weight:bold;
+}
+
+.SmallestText
+{
+    font-size: 8pt;
+    font-family:Arial;
+    font-weight:normal;
+}
+
+.SmallestBoldText
+{
+    font-size: 8pt;
+    font-family:Arial;
+    font-weight:bold;
+}
+
+.ItemDetailsEditArea
+{
+    background-color: #E0FAD8;
+    font-size: 10pt;
+    font-family:Arial;
+}
+
+.ItemDetailsFooterArea
+{
+    background-color: #E0FAD8;
+    font-size: 9pt;
+    font-family:Arial;
+}
+
+/* 1440 X 800 */
+.ContractCreatePanelHighRes
+{
+    width:100%; 
+    height:618px; 
+}
+
+/* 1024 X 768 */
+.ContractCreatePanelMedRes
+{
+    width:100%; 
+    height:480px; 
+}
+
+/* 800 X 600 */
+.ContractCreatePanelLowRes
+{
+    width:100%; 
+    height:310px; 
+}
+
+.staticMenuItemStyle
+{
+    background-color:transparent;
+    border: none;
+    outline:none;
+    color:Black;
+    text-align:center;
+    height: 26px;
+    width:auto;
+    margin-left:20px;
+}
+
+#MainMenu ul li ul
+{
+    display: none;
+}
+
+#MainMenu ul li 
+{
+    position: relative; 
+    float: left;
+    list-style: none;
+}
+
+#ContractMenu ul li ul
+{
+    display: none;
+}
+
+#ContractMenu ul li 
+{
+    position: relative; 
+    float: left;
+    list-style: none;
+}
+.staticSelectedStyle
+{
+	background-color:transparent;
+    color:White;
+    border-color: transparent;
+    z-index: 100;
+    border-width: 0px;
+    border:none;
+    outline:none;
+}
+
+.staticHoverStyle
+{
+    background-color: transparent;
+    color:White;
+}
+
+.menuDisabledStyle
+{
+    color: grey;
+}
+
+.menuSelectedStyle
+{
+    color: white;
+}
+
+.mainMenuStyle
+{
+    background-color: transparent;
+    border:dashed;
+    outline: none;
+    color: Black;
+    text-align: center;
+    height: 26px;
+    width: auto;
+    margin-left: 20px;
+    position: relative;
+}
+
+
+.stateTable tr
+{
+    height: 16px;
+    border: 1px;
+}
+
+.stateTable td
+{   
+	width:33%; 
+	border:1px;
+}
+
+.stateCheckBox
+{   
+	color:Black;
+}
+
+.stateCheckBoxCanada
+{   
+	color:Red;
+}
+
+.stateCheckBoxPuertoRico
+{   
+	color:Green;
+}
+
+.statePanel
+{
+	overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.itemCountryPanel
+{
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.exportUploadMedSurgButton
+{
+	background-color: #B1C9F5;
+	background-image: url(Images/ExcelIcon-32x32_t.gif);	
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	background-size: 18%;
+	white-space: normal;
+}
+
+.exportUploadPharmButton
+{
+	background-color: #D9FFD9;
+	background-image: url(Images/ExcelIcon-32x32_t.gif);	
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	background-size: 18%;
+	white-space: normal;
+}
+
+.exportUploadSalesButton
+{
+	background-color:ButtonFace;
+	background-image: url(Images/ExcelIcon-32x32_t.gif);	
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	background-size: 18%;
+	white-space: normal;
+}
+
+.editMedSurgPricelistButton
+{
+	background-color:  #B1C9F5;
+	white-space: normal;
+}
+
+
+.editPharmPricelistButton
+{
+	background-color: #D9FFD9;
+	white-space: normal;
+}
+
+.multilineButtonText
+{
+	white-space: normal;
+    text-align:center;
+    padding-left:0px;
+    padding-right:0px;
+}
+
+.rightAlign 
+{ 
+	text-align:right; 
+}
+
+.leftAlign 
+{ 
+	text-align:left; 
+}
+
+.inlineBlock 
+{ 
+	display: inline-block; 
+}
+
+.mainWindowLeft
+{ 
+	float:left;
+	width: 100%;
+	height: 626px;
+	overflow: hidden; 
+}
+
+.mainWindowRight 
+{ 
+	background-color:#C3C3C3;
+	width: 0%;
+	height: 722px;
+	overflow: hidden; 
+}
+
+.mainRightTopSubPanel
+{
+	height:334px;
+}
+
+.mainRightBottomSubPanel
+{
+	height:334px;	
+}
+
+.documentSelectButton
+{
+	border:none;
+	margin:0 0 0 0 ;
+	padding:0 0 0 0 ;
+	text-align:left;  
+	height:100%;
+	background-color:transparent;
+}
+

@@ -1,0 +1,1067 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props" Condition="Exists('packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{45F47205-E429-4566-9042-A17091CA737C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VA.NAC.CM.ApplicationStartup</RootNamespace>
+    <AssemblyName>ApplicationStartup</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DEVAPP3WithDEVDB|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <CodeAnalysisRuleSet>SecurityRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'LocalWithTESTDBA|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\ApplicationStartup.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DEVAPP3WithTESTDBA|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\ApplicationStartup.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TESTAPPWithDEVDB|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\ApplicationStartup.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'TESTAPP3WithTESTDB3|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\ApplicationStartup.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+    <Optimize>false</Optimize>
+    <LegacyPublishPropertiesPageEnabled>true</LegacyPublishPropertiesPageEnabled>
+    <PublishDatabases>false</PublishDatabases>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'LocalWithDEVDB2|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <PublishDatabases>false</PublishDatabases>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PRDAPP1WithTESTDBA|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>false</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\ApplicationStartup.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;E:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;E:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PRDAPP1WITHPRDDB1|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\ApplicationStartup.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;E:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Team Tools\Static Analysis Tools\\Rule Sets;e:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;E:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Team Tools\Static Analysis Tools\FxCop\\Rules;e:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\ApplicationStartup\packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\ApplicationStartup\packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="ServiceLogging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=abd1aefaf6cc4774, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Windows\assembly\GAC_MSIL\ServiceLogging\1.0.0.0__abd1aefaf6cc4774\ServiceLogging.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="403A.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="409.aspx" />
+    <Content Include="App_Themes\CMStandard\CMStandard.css" />
+    <Content Include="App_Themes\CMStandard\ItemGrids.css" />
+    <Content Include="Calendar.aspx" />
+    <Content Include="ContractPaymentsNational.aspx" />
+    <Content Include="ContractChecks.aspx" />
+    <Content Include="ContractChecks2.aspx" />
+    <Content Include="ContractComments.aspx" />
+    <Content Include="ContractDetails.aspx" />
+    <Content Include="ContractGeneral.aspx" />
+    <Content Include="ContractPayments.aspx" />
+    <Content Include="ContractRebate.aspx" />
+    <Content Include="ContractItems.aspx" />
+    <Content Include="ContractSales.aspx" />
+    <Content Include="ContractSales2.aspx" />
+    <Content Include="ContractSBAPlan.aspx" />
+    <Content Include="ContractVendor.aspx" />
+    <Content Include="EditContractSales2.aspx" />
+    <Content Include="Images\LeftArrowF.gif" />
+    <Content Include="Images\LeftArrowFHighlighted.gif" />
+    <Content Include="Images\RightArrowF.gif" />
+    <Content Include="Images\RightArrowFHighlighted.gif" />
+    <Content Include="ItemDetails.aspx" />
+    <Content Include="ItemPriceDetails.aspx" />
+    <Content Include="ItemHeader.ascx" />
+    <Content Include="Items.aspx" />
+    <Content Include="Images\NACCMAmericanFlag.gif" />
+    <Content Include="Images\NACCMAmericanFlagTransparent.gif" />
+    <Content Include="JQuery\spin.js" />
+    <Content Include="NACCMStartupErrorPage.aspx" />
+    <None Include="packages\AjaxControlToolkit.20.1.0\.signature.p7s" />
+    <None Include="packages\AjaxControlToolkit.20.1.0\AjaxControlToolkit.20.1.0.nupkg" />
+    <None Include="packages\AjaxControlToolkit.20.1.0\Content\Web.config.transform" />
+    <None Include="packages\AjaxControlToolkit.20.1.0\readme.txt" />
+    <Content Include="packages\jQuery.3.7.1\.signature.p7s" />
+    <Content Include="packages\jQuery.3.7.1\Content\Scripts\jquery-3.7.1.min.map" />
+    <Content Include="packages\jQuery.3.7.1\Content\Scripts\jquery-3.7.1.slim.min.map" />
+    <Content Include="packages\jQuery.3.7.1\jQuery.3.7.1.nupkg" />
+    <Content Include="packages\jQuery.3.7.1\Tools\common.ps1" />
+    <Content Include="packages\jQuery.3.7.1\Tools\install.ps1" />
+    <Content Include="packages\jQuery.3.7.1\Tools\uninstall.ps1" />
+    <Content Include="packages\jQuery.Validation.1.19.5\.signature.p7s" />
+    <Content Include="packages\jQuery.Validation.1.19.5\jQuery.Validation.1.19.5.nupkg" />
+    <None Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0.nupkg" />
+    <None Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\Microsoft.AspNet.ScriptManager.WebForms.5.0.0.nupkg" />
+    <None Include="packages\Microsoft.jQuery.Unobtrusive.Ajax.3.2.6\Content\Scripts\jquery.unobtrusive-ajax.js" />
+    <None Include="packages\Microsoft.jQuery.Unobtrusive.Ajax.3.2.6\Content\Scripts\jquery.unobtrusive-ajax.min.js" />
+    <None Include="packages\jQuery.3.7.1\Content\Scripts\jquery-3.7.1-vsdoc.js" />
+    <Content Include="packages\jQuery.3.7.1\Content\Scripts\jquery-3.7.1.js" />
+    <Content Include="packages\jQuery.3.7.1\Content\Scripts\jquery-3.7.1.min.js" />
+    <Content Include="packages\jQuery.3.7.1\Content\Scripts\jquery-3.7.1.slim.js" />
+    <Content Include="packages\jQuery.3.7.1\Content\Scripts\jquery-3.7.1.slim.min.js" />
+    <None Include="packages\jQuery.3.7.1\Tools\jquery-3.7.1.intellisense.js" />
+    <None Include="packages\jQuery.Validation.1.19.5\Content\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="packages\jQuery.Validation.1.19.5\Content\Scripts\jquery.validate.js" />
+    <Content Include="packages\jQuery.Validation.1.19.5\Content\Scripts\jquery.validate.min.js" />
+    <Content Include="packages\Microsoft.jQuery.Unobtrusive.Validation.4.0.0\Content\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="packages\Microsoft.jQuery.Unobtrusive.Validation.4.0.0\Content\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\de\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\de\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\de\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\de\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\de\Microsoft.ReportViewer.WebForms.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\de\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\es\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\es\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\es\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\es\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\es\Microsoft.ReportViewer.WebForms.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\es\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\fr\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\fr\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\fr\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\fr\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\fr\Microsoft.ReportViewer.WebForms.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\fr\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\it\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\it\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\it\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\it\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\it\Microsoft.ReportViewer.WebForms.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\it\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\ja\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\ja\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\ja\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\ja\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\ja\Microsoft.ReportViewer.WebForms.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\ja\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\ko\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\ko\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\ko\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\ko\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\ko\Microsoft.ReportViewer.WebForms.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\ko\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.Common.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.Design.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.WebForms.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.WebForms.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.WinForms.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\pt\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\pt\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\pt\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\pt\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\pt\Microsoft.ReportViewer.WebForms.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\pt\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\ru\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\ru\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\ru\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\ru\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\ru\Microsoft.ReportViewer.WebForms.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\ru\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\zh-CHS\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\zh-CHS\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\zh-CHS\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\zh-CHS\Microsoft.ReportViewer.WebForms.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\zh-CHT\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\zh-CHT\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\zh-CHT\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\zh-CHT\Microsoft.ReportViewer.WebForms.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\license\ThirdPartyNotices_ReportViewer.txt" />
+    <Content Include="packages\Microsoft.jQuery.Unobtrusive.Validation.4.0.0\.signature.p7s" />
+    <Content Include="packages\Microsoft.jQuery.Unobtrusive.Validation.4.0.0\Microsoft.jQuery.Unobtrusive.Validation.4.0.0.nupkg" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\.signature.p7s" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\license.md" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\Microsoft.SqlServer.Types.160.1000.6.nupkg" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\.signature.p7s" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\content\web.config.install.xdt" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\license\License_ReportViewer.rtf" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0.nupkg" />
+    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\tools\install.ps1" />
+    <None Include="packages\repositories.config" />
+    <None Include="packages\Microsoft.jQuery.Unobtrusive.Ajax.3.2.6\.signature.p7s" />
+    <None Include="packages\Microsoft.jQuery.Unobtrusive.Ajax.3.2.6\Microsoft.jQuery.Unobtrusive.Ajax.3.2.6.nupkg" />
+    <None Include="Properties\PublishProfiles\PRDAPP3ONPRDDB3.pubxml" />
+    <None Include="Properties\PublishProfiles\PRDAPP3ONTESTDB3.pubxml" />
+    <None Include="Properties\PublishProfiles\TESTAPP3WithTESTDB3.pubxml" />
+    <None Include="Properties\PublishProfiles\TESTI2.pubxml" />
+    <None Include="Properties\PublishProfiles\TRAINING.pubxml" />
+    <None Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\content\Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <None Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\content\Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <None Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\content\Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <None Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\content\Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <None Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\content\Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <None Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\content\Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <None Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\content\Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <None Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\content\Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <None Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\content\Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <None Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\content\Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <None Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\content\Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll" />
+    <None Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\content\Scripts\WebForms\DetailsView.js" />
+    <None Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\content\Scripts\WebForms\Focus.js" />
+    <None Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\content\Scripts\WebForms\GridView.js" />
+    <None Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\content\Scripts\WebForms\Menu.js" />
+    <None Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\content\Scripts\WebForms\MenuStandards.js" />
+    <None Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\content\Scripts\WebForms\SmartNav.js" />
+    <None Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\content\Scripts\WebForms\TreeView.js" />
+    <None Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\content\Scripts\WebForms\WebForms.js" />
+    <None Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\content\Scripts\WebForms\WebParts.js" />
+    <None Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\content\Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll" />
+    <None Include="Scripts\JQuery\jquery-3.7.1.intellisense.js" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\de\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\es\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\fr\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\it\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\ja\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\ko\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\Microsoft.SqlServer.Types.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\pt\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\ru\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\zh-Hans\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\zh-Hant\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\lib\netstandard2.1\de\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\lib\netstandard2.1\es\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\lib\netstandard2.1\fr\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\lib\netstandard2.1\it\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\lib\netstandard2.1\ja\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\lib\netstandard2.1\ko\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\lib\netstandard2.1\Microsoft.SqlServer.Types.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\lib\netstandard2.1\pt-BR\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\lib\netstandard2.1\ru\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\lib\netstandard2.1\zh-Hans\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\lib\netstandard2.1\zh-Hant\Microsoft.SqlServer.Types.resources.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\runtimes\win-x64\native\SqlServerSpatial160.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\runtimes\win-x86\native\SqlServerSpatial160.dll" />
+    <None Include="Scripts\JQuery\jquery-3.7.1-vsdoc.js" />
+    <Content Include="Scripts\JQuery\jquery-3.7.1.js" />
+    <Content Include="Scripts\JQuery\jquery-3.7.1.min.js" />
+    <Content Include="Scripts\JQuery\jquery-3.7.1.slim.js" />
+    <Content Include="Scripts\JQuery\jquery-3.7.1.slim.min.js" />
+    <Content Include="Scripts\JQuery\jquery-3.7.1.slim.min.map" />
+    <Content Include="Scripts\JQuery\jquery-3.7.1.min.map" />
+    <Content Include="Scripts\Ajax\jquery.unobtrusive-ajax.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\Ajax\jquery.unobtrusive-ajax.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Scripts\JQuery\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\JQuery\jquery.validate.js" />
+    <Content Include="Scripts\JQuery\jquery.validate.min.js" />
+    <Content Include="Scripts\JQuery\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\JQuery\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\WebForms\Focus.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\WebForms\GridView.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\WebForms\Menu.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\WebForms\MenuStandards.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\WebForms\SmartNav.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\WebForms\TreeView.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\WebForms\WebForms.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\WebForms\WebParts.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\WebForms\WebUIValidation.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Start.aspx" />
+    <Content Include="CreateContract2.aspx" />
+    <Content Include="EditContractSales.aspx" />
+    <Content Include="EditSBAPlanDetails.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\ajax-loader.gif" />
+    <Content Include="Images\ExcelIcon-32x32_t.gif" />
+    <Content Include="Images\va_logo.gif" />
+    <Content Include="JQuery\NACCMInit.js" />
+    <Content Include="JQuery\NACCMMaster.js" />
+    <Content Include="Old1NCM.aspx" />
+    <Content Include="OfferAward.aspx" />
+    <Content Include="OfferComments.aspx" />
+    <Content Include="OfferPointsOfContact.aspx" />
+    <Content Include="OfferSelect.aspx" />
+    <Content Include="OfferSelectBody.aspx" />
+    <Content Include="OfferGeneral.aspx" />
+    <Content Include="PointsOfContact.aspx" />
+    <Content Include="PopupEditWindow.aspx" />
+    <Content Include="ReportSelectBody.aspx" />
+    <Content Include="NCM.aspx" />
+    <Content Include="ContractSelectBody.aspx" />
+    <Content Include="WindowSizeHandler.ashx" />
+    <None Include="Web.I2DEVELOPMENT.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.TRAINING.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="409.aspx.cs">
+      <DependentUpon>409.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="409.aspx.designer.cs">
+      <DependentUpon>409.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BaseDocumentEditorPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BaseSearchPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Calendar.aspx.cs">
+      <DependentUpon>Calendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Calendar.aspx.designer.cs">
+      <DependentUpon>Calendar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompactHeader.ascx.cs">
+      <DependentUpon>CompactHeader.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompactHeader.ascx.designer.cs">
+      <DependentUpon>CompactHeader.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ContractPaymentsNational.aspx.cs">
+      <DependentUpon>ContractPaymentsNational.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContractPaymentsNational.aspx.designer.cs">
+      <DependentUpon>ContractPaymentsNational.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContractChecks.aspx.cs">
+      <DependentUpon>ContractChecks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContractChecks.aspx.designer.cs">
+      <DependentUpon>ContractChecks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContractChecks2.aspx.cs">
+      <DependentUpon>ContractChecks2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContractChecks2.aspx.designer.cs">
+      <DependentUpon>ContractChecks2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContractComments.aspx.cs">
+      <DependentUpon>ContractComments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContractComments.aspx.designer.cs">
+      <DependentUpon>ContractComments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContractDetails.aspx.cs">
+      <DependentUpon>ContractDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContractDetails.aspx.designer.cs">
+      <DependentUpon>ContractDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContractGeneral.aspx.cs">
+      <DependentUpon>ContractGeneral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContractGeneral.aspx.designer.cs">
+      <DependentUpon>ContractGeneral.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContractItems.aspx.cs">
+      <DependentUpon>ContractItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContractItems.aspx.designer.cs">
+      <DependentUpon>ContractItems.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContractPayments.aspx.cs">
+      <DependentUpon>ContractPayments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContractPayments.aspx.designer.cs">
+      <DependentUpon>ContractPayments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContractRebate.aspx.cs">
+      <DependentUpon>ContractRebate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContractRebate.aspx.designer.cs">
+      <DependentUpon>ContractRebate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContractSales.aspx.cs">
+      <DependentUpon>ContractSales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContractSales.aspx.designer.cs">
+      <DependentUpon>ContractSales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContractSales2.aspx.cs">
+      <DependentUpon>ContractSales2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContractSales2.aspx.designer.cs">
+      <DependentUpon>ContractSales2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContractSBAPlan.aspx.cs">
+      <DependentUpon>ContractSBAPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContractSBAPlan.aspx.designer.cs">
+      <DependentUpon>ContractSBAPlan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContractSearch.master.cs">
+      <DependentUpon>ContractSearch.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContractSearch.master.designer.cs">
+      <DependentUpon>ContractSearch.master</DependentUpon>
+    </Compile>
+    <Compile Include="ContractSelect.aspx.cs">
+      <DependentUpon>ContractSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContractSelect.aspx.designer.cs">
+      <DependentUpon>ContractSelect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContractVendor.aspx.cs">
+      <DependentUpon>ContractVendor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContractVendor.aspx.designer.cs">
+      <DependentUpon>ContractVendor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContractView.Master.cs">
+      <DependentUpon>ContractView.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContractView.Master.designer.cs">
+      <DependentUpon>ContractView.Master</DependentUpon>
+    </Compile>
+    <Compile Include="BaseMasterPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditContractSales2.aspx.cs">
+      <DependentUpon>EditContractSales2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditContractSales2.aspx.designer.cs">
+      <DependentUpon>EditContractSales2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ItemDetails.aspx.cs">
+      <DependentUpon>ItemDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemDetails.aspx.designer.cs">
+      <DependentUpon>ItemDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ItemPriceDetails.aspx.cs">
+      <DependentUpon>ItemPriceDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemPriceDetails.aspx.designer.cs">
+      <DependentUpon>ItemPriceDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ItemHeader.ascx.cs">
+      <DependentUpon>ItemHeader.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemHeader.ascx.designer.cs">
+      <DependentUpon>ItemHeader.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Items.aspx.cs">
+      <DependentUpon>Items.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IEModeHttpModule.cs" />
+    <Compile Include="Items.aspx.designer.cs">
+      <DependentUpon>Items.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NACCMStartupErrorPage.aspx.cs">
+      <DependentUpon>NACCMStartupErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NACCMStartupErrorPage.aspx.designer.cs">
+      <DependentUpon>NACCMStartupErrorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportSearch.master.cs">
+      <DependentUpon>ReportSearch.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportSearch.master.designer.cs">
+      <DependentUpon>ReportSearch.master</DependentUpon>
+    </Compile>
+    <Compile Include="RequestedNextNewOffer.cs" />
+    <Compile Include="Start.aspx.cs">
+      <DependentUpon>Start.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Start.aspx.designer.cs">
+      <DependentUpon>Start.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateContract.aspx.cs">
+      <DependentUpon>CreateContract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateContract.aspx.designer.cs">
+      <DependentUpon>CreateContract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CopyContract.aspx.cs">
+      <DependentUpon>CopyContract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CopyContract.aspx.designer.cs">
+      <DependentUpon>CopyContract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateContract2.aspx.cs">
+      <DependentUpon>CreateContract2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateContract2.aspx.designer.cs">
+      <DependentUpon>CreateContract2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentCreation.master.cs">
+      <DependentUpon>DocumentCreation.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DocumentCreation.master.designer.cs">
+      <DependentUpon>DocumentCreation.master</DependentUpon>
+    </Compile>
+    <Compile Include="EditContractSales.aspx.cs">
+      <DependentUpon>EditContractSales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditContractSales.aspx.designer.cs">
+      <DependentUpon>EditContractSales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditSBAPlanDetails.aspx.cs">
+      <DependentUpon>EditSBAPlanDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditSBAPlanDetails.aspx.designer.cs">
+      <DependentUpon>EditSBAPlanDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="KeepAlive.aspx.cs">
+      <DependentUpon>KeepAlive.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KeepAlive.aspx.designer.cs">
+      <DependentUpon>KeepAlive.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NACCM.Master.cs">
+      <DependentUpon>NACCM.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NACCM.Master.designer.cs">
+      <DependentUpon>NACCM.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Old1NCM.aspx.cs">
+      <DependentUpon>Old1NCM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old1NCM.aspx.designer.cs">
+      <DependentUpon>Old1NCM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OfferAward.aspx.cs">
+      <DependentUpon>OfferAward.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OfferAward.aspx.designer.cs">
+      <DependentUpon>OfferAward.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OfferComments.aspx.cs">
+      <DependentUpon>OfferComments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OfferComments.aspx.designer.cs">
+      <DependentUpon>OfferComments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OfferPointsOfContact.aspx.cs">
+      <DependentUpon>OfferPointsOfContact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OfferPointsOfContact.aspx.designer.cs">
+      <DependentUpon>OfferPointsOfContact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OfferSearch.Master.cs">
+      <DependentUpon>OfferSearch.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OfferSearch.Master.designer.cs">
+      <DependentUpon>OfferSearch.Master</DependentUpon>
+    </Compile>
+    <Compile Include="OfferSelect.aspx.cs">
+      <DependentUpon>OfferSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OfferSelect.aspx.designer.cs">
+      <DependentUpon>OfferSelect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OfferSelectBody.aspx.cs">
+      <DependentUpon>OfferSelectBody.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OfferSelectBody.aspx.designer.cs">
+      <DependentUpon>OfferSelectBody.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OfferView.Master.cs">
+      <DependentUpon>OfferView.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OfferView.Master.designer.cs">
+      <DependentUpon>OfferView.Master</DependentUpon>
+    </Compile>
+    <Compile Include="OfferGeneral.aspx.cs">
+      <DependentUpon>OfferGeneral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OfferGeneral.aspx.designer.cs">
+      <DependentUpon>OfferGeneral.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PointsOfContact.aspx.cs">
+      <DependentUpon>PointsOfContact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PointsOfContact.aspx.designer.cs">
+      <DependentUpon>PointsOfContact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopupEditWindow.aspx.cs">
+      <DependentUpon>PopupEditWindow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopupEditWindow.aspx.designer.cs">
+      <DependentUpon>PopupEditWindow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportSelectBody.aspx.cs">
+      <DependentUpon>ReportSelectBody.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportSelectBody.aspx.designer.cs">
+      <DependentUpon>ReportSelectBody.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NCM.aspx.cs">
+      <DependentUpon>NCM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NCM.aspx.designer.cs">
+      <DependentUpon>NCM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContractSelectBody.aspx.cs">
+      <DependentUpon>ContractSelectBody.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContractSelectBody.aspx.designer.cs">
+      <DependentUpon>ContractSelectBody.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RequestedNextContract.cs" />
+    <Compile Include="RequestedNextDocument.cs" />
+    <Compile Include="RequestedNextNewContract.cs" />
+    <Compile Include="RequestedNextOffer.cs" />
+    <Compile Include="UserRecentDocumentsBody.aspx.cs">
+      <DependentUpon>UserRecentDocumentsBody.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserRecentDocumentsBody.aspx.designer.cs">
+      <DependentUpon>UserRecentDocumentsBody.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserRecentDocuments.master.cs">
+      <DependentUpon>UserRecentDocuments.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserRecentDocuments.master.designer.cs">
+      <DependentUpon>UserRecentDocuments.master</DependentUpon>
+    </Compile>
+    <Compile Include="WindowSizeHandler.ashx.cs">
+      <DependentUpon>WindowSizeHandler.ashx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ApplicationSharedObj\ApplicationSharedObj.csproj">
+      <Project>{b4d936da-10f2-4499-be16-9eb29fc474da}</Project>
+      <Name>ApplicationSharedObj</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CMDBInterface\CMDBInterface.csproj">
+      <Project>{c6bc8d11-f16e-48da-9747-842543383e3a}</Project>
+      <Name>CMDBInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NACCMBrowserObj\NACCMBrowserObj.csproj">
+      <Project>{cca9da2f-f781-41c3-bd31-ca3031860eba}</Project>
+      <Name>NACCMBrowserObj</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NACUserRoleObj\NACUserRoleObj.csproj">
+      <Project>{1219e559-0c56-46a7-8282-9b72cc227c1c}</Project>
+      <Name>NACUserRoleObj</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReportManager\ReportManager.csproj">
+      <Project>{e48e81b7-dce7-4023-aba9-6038b3ecbf8e}</Project>
+      <Name>ReportManager</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CompactHeader.ascx" />
+    <Content Include="ContractSelect.aspx" />
+    <Content Include="ApplicationStartupDetails.css" />
+    <Content Include="CreateContract.aspx" />
+    <Content Include="Images\calendar.GIF" />
+    <Content Include="CopyContract.aspx" />
+    <Content Include="KeepAlive.aspx" />
+    <Content Include="UserRecentDocumentsBody.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="SqlServerTypes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.TESTAPP3WITHTESTDB3.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NACCM.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ContractSearch.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="OfferSearch.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ContractView.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="OfferView.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\CMStandard\CMStandard.skin" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DocumentCreation.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UserRecentDocuments.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ReportSearch.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Web.PRDAPP3WithPRDDB3.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.PRDAPP3WithTESTDB3.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">16.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TESTAPPONRESTORE|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PRDAPP3WithTESTDB3|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <DefineConstants>DEBUG</DefineConstants>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PRDAPP3WithPRDDB3|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TRAINING|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'I2DEVELOPMENT|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v16.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>RunDLL32.exe InetCpl.cpl,ClearMyTracksByProcess 8</PostBuildEvent>
+  </PropertyGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\ApplicationStartup\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" Text="$([System.String]::Format('$(ErrorText)', '..\ApplicationStartup\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props'))" />
+  </Target>
+  <PropertyGroup>
+    <PreBuildEvent>copy $(ProjectDir)packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\content\Scripts\WebForms\MSAjax\*.js   $(ProjectDir)Scripts\WebForms\MSAjax
+copy $(ProjectDir)packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\content\Scripts\WebForms\*.js   $(ProjectDir)Scripts\WebForms
+copy $(ProjectDir)packages\jQuery.3.7.1\Content\Scripts\*.js   $(ProjectDir)Scripts\Jquery
+copy $(ProjectDir)packages\jQuery.3.7.1\Content\Scripts\*.map   $(ProjectDir)Scripts\Jquery
+copy $(ProjectDir)packages\Microsoft.jQuery.Unobtrusive.Ajax.3.2.6\Content\Scripts\*.js  $(ProjectDir)Scripts\Ajax</PreBuildEvent>
+  </PropertyGroup>
+</Project>

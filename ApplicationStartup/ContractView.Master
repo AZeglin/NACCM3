@@ -1,0 +1,298 @@
+<%@ Master Language="C#" MasterPageFile="~/NACCM.Master"  AutoEventWireup="true" CodeBehind="ContractView.master.cs" Inherits="VA.NAC.CM.ApplicationStartup.ContractView" %>
+<%@ MasterType VirtualPath="~/NACCM.Master" %>
+
+<%@ Register Assembly="NACCMBrowserObj" Namespace="VA.NAC.NACCMBrowser.BrowserObj" TagPrefix="ep" %>
+
+<asp:Content ID="ContractViewMasterContent" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
+ 
+                   <script type="text/javascript" >
+
+                       var spinnerOptions;
+                       var progressIndicatorDiv;
+                       var spinner;
+
+                       $(window).load( function()  {
+                 //       alert('window load');
+
+                        });
+
+                       $(document).ready(function () {
+                     //      alert('document ready');
+                           
+                           EnableProgressIndicator(false);
+
+                           spinnerOptions = {
+                               lines: 11, // The number of lines to draw
+                               length: 17, // The length of each line
+                               width: 5, // The line thickness
+                               radius: 11, // The radius of the inner circle
+                               scale: 1.0,  // Scales overall size of the spinner
+                               corners: 1.0, // Corner roundness (0..1)
+                               rotate: 0, // The rotation offset
+                               direction: 1, // 1: clockwise, -1: counterclockwise
+                               color: '#0A0A0A', // #rgb or #rrggbb
+                               opacity: 0,          // Opacity of the lines
+                               speed: 1.0, // Rounds per second
+                               trail: 70, // Afterglow percentage
+                               fps: 20,  // Frames per second when using setTimeout()
+                               shadow: false, // Whether to render a shadow
+                               hwaccel: false, // Whether to use hardware acceleration
+                               className: 'spinner', // The CSS class to assign to the spinner
+                               zIndex: 2e9, // The z-index (defaults to 2000000000)
+                               top: '50%', // Top position relative to parent in px
+                               left: '50%', // Left position relative to parent in px
+                               position: 'absolute'  // Element positioning
+                           };
+
+                           // run spinner and make containing div visible/hidden
+                           progressIndicatorDiv = document.getElementById('<%=ProgressIndicator.ClientID %>');
+                       //    alert('contents of div var:' + progressIndicatorDiv);
+                           spinner = new Spinner(spinnerOptions).spin(progressIndicatorDiv);
+                       //    alert('contents of spinner var:' + spinner);
+                       });
+
+
+                       function EnableProgressIndicator(bEnable) {
+                        //   alert('In enable=' + bEnable.toString());
+                           var progressIndicator = document.getElementById('<%=ProgressIndicator.ClientID %>');
+ 
+                           if (progressIndicator != null) {
+                               if (bEnable == true) { 
+                                   progressIndicator.style.visibility = "visible";
+                                   
+                                   spinner.spin(progressIndicator);
+                               }
+                               else { 
+                                   progressIndicator.style.visibility = "hidden"; 
+                               } 
+                           }
+                           else {
+                         //      alert('progressIndicator was null');
+                           }
+                       }
+
+                       function HideProgressIndicator() {
+                       //    alert('In hide');
+                           var progressIndicator = document.getElementById('<%=ProgressIndicator.ClientID %>');
+                           progressIndicator.style.visibility = "hidden";                           
+                       }
+
+                       
+
+                    </script>      
+
+<ep:UpdatePanelEventProxy ID="ContractViewMasterUpdatePanelEventProxy" runat="server"  />
+        <asp:updatepanel ID="ContractViewMasterUpdatePanel" runat="server"  UpdateMode="Conditional" ChildrenAsTriggers="false">
+        <Triggers>
+            <asp:AsyncPostBackTrigger ControlID="ContractViewMasterUpdatePanelEventProxy" EventName="ProxiedEvent" />
+        </Triggers>  
+        <ContentTemplate>
+    
+ 
+ <table>
+    <tr style="height:150px; vertical-align:top;">
+        <td style="height:150px;">
+            <table style="width:100%; height:150px; background-color:#E3E3E3; table-layout:fixed;">
+                <tr style="height:150px;">
+                    <td style="height:150px;">
+                        <table style="width:100%; table-layout:fixed; border-bottom:solid 1px Black;">
+                            <tr style="border:none; height:150px;">
+                                <td style="width:30%; height:150px;">
+                                    <asp:FormView ID="ContractViewMasterVendorFormView" runat="server" DefaultMode="Edit" Width="100%" OnPreRender="ContractViewMasterVendorFormView_OnPreRender" >
+                                        <EditItemTemplate>
+                                            <table style="width:100%; height:150px; table-layout:fixed; background-color:#D3D3D3; border:solid 1px Black;">
+                                                <tr>
+                                                    <td>
+                                                        <asp:Label ID="ContractNumberLabel" runat="server" Text='<%# Eval("ContractNumber") %>' SkinID="HeaderLabel" Font-Size="Larger" Font-Bold="true" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                       <asp:Label ID="VendorNameLabel" runat="server" Text='<%# Eval("VendorName") %>' SkinID="HeaderLabel"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                       <asp:Label ID="VendorWebPage" runat="server" Text='<%# Eval("VendorWebAddress") %>' SkinID="HeaderLabel"/>
+                                                       <asp:Label ID="ParentVendorWebPage" runat="server" Text='<%# Eval("ParentVendorWebAddress") %>' SkinID="HeaderLabel"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div role="status" >
+                                                            <asp:Label ID="ContractStatusHeaderLabel" runat="server" Text="Contract Status: " SkinID="HeaderLabel"/>
+                                                            <asp:Label ID="ContractStatusLabel" runat="server" Text='<%# ContractStatus( Eval("ContractExpirationDate"), Eval("ContractCompletionDate"), "ContractStatusLabel" ) %>' SkinID="HeaderLabel" /> 
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </EditItemTemplate>
+                                    </asp:FormView>
+                                </td>
+                                <td style="width:30%; height:150px;">
+                                  <asp:FormView ID="ContractViewMasterVendorAdministratorFormView" runat="server" DefaultMode="Edit" Width="100%" OnPreRender="ContractViewMasterVendorAdministratorFormView_OnPreRender" >
+                                    <EditItemTemplate>
+                                          <table style="width:100%; height:150px; table-layout:fixed; background-color:#D3D3D3; border:solid 1px Black;">
+                                                <tr>
+                                                    <td colspan="3"> 
+                                                        <asp:Label ID="VendorAddress1Label" runat="server" Text='<%# Eval("VendorAddress1") %>' SkinID="HeaderLabel"/>      
+                                                        <asp:Label ID="ParentVendorAddress1Label" runat="server" Text='<%# Eval("ParentVendorAddress1") %>' SkinID="HeaderLabel"/>                                  
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3">
+                                                        <asp:Label ID="VendorAddress2Label" runat="server" Text='<%# Eval("VendorAddress2") %>' SkinID="HeaderLabel"/>
+                                                        <asp:Label ID="ParentVendorAddress2Label" runat="server" Text='<%# Eval("ParentVendorAddress2") %>' SkinID="HeaderLabel"/>
+                                                    </td>                       
+                                                </tr>
+                                                <tr>
+                                                    <td >
+                                                        <asp:Label ID="VendorCityLabel" runat="server" Text='<%# String.Format( "{0},", Eval("VendorCity")) %>' SkinID="HeaderLabel"/>
+                                                        <asp:Label ID="ParentVendorCityLabel" runat="server" Text='<%# String.Format( "{0},", Eval("ParentVendorCity")) %>' SkinID="HeaderLabel"/>
+                                                    </td>
+                                                    <td>
+                                                        <asp:Label ID="VendorStateLabel" runat="server" Text='<%# Eval("VendorState") %>' SkinID="HeaderLabel"/>
+                                                        <asp:Label ID="ParentVendorStateLabel" runat="server" Text='<%# Eval("ParentVendorState") %>' SkinID="HeaderLabel"/>
+                                                        <asp:Label ID="VendorCountryLabel" runat="server" Text='<%# Eval("VendorCountryName") %>' SkinID="HeaderLabel"/>
+                                                        <asp:Label ID="ParentVendorCountryLabel" runat="server" Text='<%# Eval("ParentVendorCountryName") %>' SkinID="HeaderLabel"/>
+                                                    </td>
+                                                    <td>
+                                                        <asp:Label ID="VendorZipLabel" runat="server" Text='<%# (( string )Eval("VendorZip")).Length == 6 ? (( string )Eval("VendorZip")).Substring(0,5) : Eval("VendorZip") %>' SkinID="HeaderLabel"/>
+                                                        <asp:Label ID="ParentVendorZipLabel" runat="server" Text='<%# (( string )Eval("ParentVendorZip")).Length == 6 ? (( string )Eval("ParentVendorZip")).Substring(0,5) : Eval("ParentVendorZip") %>' SkinID="HeaderLabel"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" style="text-align:center;">
+                                                        <asp:Label ID="ContractAdministratorHeaderLabel" runat="server" Width="100%" Text="Contract Administrator" BackColor="Silver" SkinID="HeaderLabel" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3">
+                                                        <asp:Label ID="VendorContractAdministratorLabel" runat="server" Text='<%# Eval("VendorPrimaryContactName") %>' SkinID="HeaderLabel"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3">
+                                                        <asp:Label ID="VendorContractAdministratorPhoneLabel" runat="server" Text='<%# String.Format( "Phone: {0}", Eval("VendorPrimaryContactPhone")) %>' SkinID="HeaderLabel"/>
+                                                        <asp:Label ID="VendorContractAdministratorPhoneExtLabel" runat="server" Text='<%# (( string )Eval("VendorPrimaryContactExtension")).Length > 0 ? String.Format( " Ext: {0}", Eval("VendorPrimaryContactExtension")) : "" %>' SkinID="HeaderLabel" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3">
+                                                        <asp:Label ID="VendorContractAdministratorEmailLabel" runat="server" Text='<%# Eval("VendorPrimaryContactEmail") %>' SkinID="HeaderLabel"/>
+                                                    </td>
+                                                </tr>
+                                            </table>           
+                                        </EditItemTemplate>
+                                    </asp:FormView>
+                                </td>
+                                <td style="width:30%; height:150px; vertical-align:top;">
+                                  <asp:FormView ID="ContractViewMasterContractingOfficerFormView" runat="server" DefaultMode="Edit" Width="100%" OnPreRender="ContractViewMasterContractingOfficerFormView_OnPreRender" >
+                                    <EditItemTemplate>
+                                          <asp:Table runat="server" style="width:100%; height:150px; vertical-align:top; table-layout:fixed; border-collapse:separate; background-color:#D3D3D3; border:solid 1px Black;" >
+                                                <asp:TableRow SkinID="TableRow"  runat="server"  >
+                                                    <asp:TableHeaderCell ID="ScheduleHeaderCell" runat="server" align="right" SkinId="TableHeaderCell" >
+                                                        <asp:Label ID="ScheduleHeaderLabel" runat="server" Text="Schedule:" SkinID="HeaderLabel"/>
+                                                    </asp:TableHeaderCell>
+                                                   <asp:TableCell  ID="ScheduleDataCell"  runat="server" align="left">
+                                                        <asp:Label ID="ScheduleLabel" runat="server" Text='<%# Eval("ScheduleName") %>' SkinID="HeaderLabel"/>
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                                <asp:TableRow SkinID="TableRow"  runat="server" >
+                                                    <asp:TableHeaderCell ID="ContractingOfficerHeaderCell" runat="server" align="right" SkinId="TableHeaderCell"  >
+                                                        <asp:Label ID="ContractingOfficerHeaderLabel" runat="server" Text="Contracting Officer:" SkinID="HeaderLabel"/>
+                                                    </asp:TableHeaderCell>    
+                                                    <asp:TableCell  ID="ContractingOfficerDataCell"  runat="server" align="left">
+                                                        <asp:Label ID="ContractingOfficerLabel" runat="server" Text='<%# Eval("ContractingOfficerFullName") %>' SkinID="HeaderLabel"/>
+                                                    </asp:TableCell>                       
+                                                </asp:TableRow>
+                                                <asp:TableRow SkinID="TableRow"  runat="server"  >
+                                                    <asp:TableHeaderCell ID="ContractingOfficerPhoneHeaderCell"   runat="server" align="right" SkinId="TableHeaderCell" >
+                                                        <asp:Label ID="ContractingOfficerPhoneHeaderLabel" runat="server" Text="Phone:" SkinID="HeaderLabel"/>
+                                                    </asp:TableHeaderCell>
+                                                    <asp:TableCell ID="ContractingOfficerPhoneDataCell"   runat="server" align="left">
+                                                        <asp:Label ID="ContractingOfficerPhoneLabel" runat="server" Text='<%# Eval("ContractingOfficerPhone") %>' SkinID="HeaderLabel"/>
+                                                    </asp:TableCell>
+                                                </asp:TableRow>                                                
+                                                <asp:TableRow SkinID="TableRow"  runat="server"  >
+                                                    <asp:TableHeaderCell ID="AssistantDirectorHeaderCell" runat="server" align="right" SkinId="TableHeaderCell" >         
+                                                        <asp:Label ID="AssistantDirectorHeaderLabel" runat="server" Text="Division Chief:" SkinID="HeaderLabel" />                                             
+                                                    </asp:TableHeaderCell>
+                                                    <asp:TableCell  ID="AssistantDirectorDataCell"  runat="server" align="left">         
+                                                        <asp:Label ID="AssistantDirectorLabel" runat="server" Text='<%# Eval("AssistantDirectorName") %>' SkinID="HeaderLabel"/>                                             
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                            </asp:Table>
+                                        </EditItemTemplate>
+                                    </asp:FormView>
+                                </td>
+                                <td style="width:10%; height:150px; vertical-align:top;">
+                                    <table  style="width:100%; height:150px;" >
+                                        <tr  style="vertical-align:top; text-align:center;">
+                                            <td>           
+                                                <asp:Button ID="ContractSaveButton" runat="server" Text="Save" Width="90%" Height="30px" SkinID="HeaderButton" OnClick="ContractSaveButton_OnClick" OnClientClick="EnableProgressIndicator(true);" />                         
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr align="center">
+                                            <td>
+                                                <div id="ProgressIndicator" runat="server" class="spinner" clientidmode="Static" style="z-index: 124; height: 80px; width: 80px; position:relative;" >
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                       </table>
+                    </td>
+                </tr>
+
+                <tr style="width:100%; height:16px; vertical-align:top;" >
+                    <td style="width:100%; height:16px;">
+                        <table style="width:100%; table-layout:auto; background-color:#C3C3C3; border-bottom:solid 1px Black;">
+                            <tr>
+                                <td style="height:2px;">
+                                 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="height:78%;">
+
+                                        <ep:EdgeMenu ID="ContractMenu" runat="server" ClientIDMode="Static" OnPreRender="ContractMenu_OnPreRender"  OnInit="ContractMenu_OnInit" 
+                                                        MenuDisabledColor="#808080"  MenuSelectedColor="#FFFFFF"  MenuMouseOverColor="#E6E6E6" >
+                                        </ep:EdgeMenu>                                        
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr style="height: 572px; vertical-align:top;">
+        <td>
+            <div role="form">
+                <asp:ContentPlaceHolder ID="ContractViewContentPlaceHolder" runat="server" >
+   
+  
+
+                </asp:ContentPlaceHolder>
+                
+            </div>
+            
+        </td>
+        
+    </tr>
+ 
+    <tr>
+        <td>
+              <asp:ValidationSummary ID="ContractGeneralRequiredFieldsValidationSummary" runat="server" ValidationGroup="ContractGeneralRequiredFields"  ShowMessageBox="true"  DisplayMode="BulletList"  ShowSummary="false"  HeaderText="Please provide the following required fields:&#xA; " />       
+        </td>
+    </tr>
+    </table>
+</ContentTemplate> 
+</asp:updatepanel> 
+</asp:Content>
