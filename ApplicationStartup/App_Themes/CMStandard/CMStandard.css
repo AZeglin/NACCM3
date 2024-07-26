@@ -1,0 +1,623 @@
+.OutsetBox
+{
+	border-style: Outset;
+}
+
+.OutsetBoxHeaderRow
+{
+	background-color: Silver;
+}
+
+.OuterTable
+{
+	background-color: #ECE9D8; 
+	width: 100%;
+}
+
+.InnerOutsetBox
+{
+    border-style: Outset;
+    border-width: 1px;
+    border-color: silver;
+}
+
+.CMGridSelectedCellStyle td
+{
+    background-color: #E3FBDD;
+    font-size: 8pt;
+    border-width: 1px;
+    border-color:Black;
+    border-left-color:inherit;
+    border-right-color:inherit;
+    border-top-color:Black;
+}
+
+.CMGridSelectedCellStyleInnerCell 
+{
+    background-color: #E3FBDD;
+    font-size: 8pt;
+	border:none; 
+}
+
+.CMGridUnSelectedCellStyleNorm td
+{
+    background-color: #F7F6F3;
+    font-size: 8pt;
+    border-width: 1px;
+    border-color:inherit;
+    border-left-color:inherit;
+    border-right-color:inherit;
+    border-top-color:inherit;
+}
+
+.CMGridUnSelectedCellStyleAlt td
+{
+    background-color: white;
+    font-size: 8pt;
+    border-width: 1px;
+    border-color:inherit;
+    border-left-color:inherit;
+    border-right-color:inherit;
+    border-top-color:inherit;
+}
+
+.CMSearchGridSelectedCellStyle td
+{
+    background-color: #E3FBDD;
+    font-size: 10pt;
+    border-width: 1px;
+    border-color:Black;
+    border-left-color:inherit;
+    border-right-color:inherit;
+    border-top-color:Black;
+}
+
+.CMSearchGridUnSelectedCellStyleNorm td
+{
+    background-color: #F7F6F3;
+    font-size: 10pt;
+    border-width: 1px;
+    border-color:inherit;
+    border-left-color:inherit;
+    border-right-color:inherit;
+    border-top-color:inherit;
+}
+
+.CMSearchGridUnSelectedCellStyleAlt td
+{
+    background-color: white;
+    font-size: 10pt;
+    border-width: 1px;
+    border-color:inherit;
+    border-left-color:inherit;
+    border-right-color:inherit;
+    border-top-color:inherit;
+}
+
+.CMSearchCheckboxLabel
+{
+    font-family: Arial;
+    font-size: 14pt; 
+    vertical-align: middle;
+    margin-left: 0;
+}
+
+.CMGrid 
+{ 
+    border-style: none;
+    border-color: inherit;
+    border-width: 1px;
+    font-size: 10pt;
+    font-family:Arial;
+    margin: 3px;
+    text-align:left;
+    background-color:White;
+}
+
+.CMGridSmall
+{ 
+    border-style: none;
+    border-color: inherit;
+    border-width: 1px;
+    font-size: 8pt;
+    font-family:Arial;
+    margin: 3px;
+    text-align:left;
+    background-color:White;
+}
+
+.CMGrid td
+{
+    padding: 3px 3px 3px 3px;
+    vertical-align:middle;
+    border-left: 1px solid black;
+	border-right: 1px solid black;
+}
+
+.CMGridSmall td
+{
+    padding: 3px 3px 3px 3px;
+    vertical-align:middle;
+    border-left: 1px solid black;
+	border-right: 1px solid black;
+}
+
+.ProjectionGridHeaders
+{
+	background-color: #6495ED;
+}
+
+.CMGridNoHeaders
+{
+	display:none;
+}
+
+.RebateGridHeaders
+{
+    background-color: #6495ED;
+}
+
+.SalesSummaryGridHeaders
+{
+    background-color:#6495ED;
+	height: 40px;
+}
+
+.SalesSummaryGridItems
+{
+    background-color:#F7F6F3;
+    vertical-align:middle; 
+}
+
+.EditSalesGridHeaders
+{
+    background-color: #8b8dbb;
+}
+
+.CheckGridHeaders
+{
+    background-color: #6495ED;
+}
+
+.PaymentGridHeaders
+{
+    background-color: #6495ED;
+}
+
+.CMGridItems
+{
+    background-color:#F7F6F3;
+    vertical-align:top;   
+}
+
+.CMGridAltItems
+{
+    background-color: white;
+}
+
+.CMGridFooterStyle
+{
+    background-color: #5D7B9D;
+    font-weight: bold;    
+}
+
+.CMGridEditRowStyle
+{
+    background-color: #E0FAD8;
+    font-size: 10pt;
+    font-family:Arial;
+}
+
+.CMGridMultilineInEditMode
+{
+    font-size: 10pt;
+    font-family:Arial;
+}
+
+.CMGridEditRowStyleSmall
+{
+    background-color: #E0FAD8;
+    font-size: 10pt;
+    font-family:Arial;
+}
+
+.CMGridMultilineInEditModeSmall
+{
+    font-size: 10pt;
+    font-family:Arial;
+}
+
+.CMGridHighlightedRowStyle
+{
+    border-width: 4px;
+}
+
+.CMGridEditCellStyle
+{
+    border: none 0px;
+}
+
+.ForceBoundFieldWidth
+{
+     width: 120px;
+}
+
+div#RebateGridViewDiv
+{
+    overflow:auto;
+}
+
+.HighlightedMissingData
+{
+    background-color: #F7F1BF;
+}
+
+.HighlightedOutOfRangeData
+{
+    background-color: #FFD6C6;
+}
+
+.ListViewDataPagerFirst
+{
+    padding: 2px 4px;
+    display: inline-block;
+    margin: auto 2px;
+}
+              
+.ListViewDataPagerLast
+{
+    padding: 2px 4px;
+    display: inline-block;
+    margin: auto 2px;
+}
+              
+.ListViewDataPagerCurrent
+{
+ color:#444444;
+ font-weight:bold;
+ text-decoration:underline;
+}
+              
+.ListViewDataPagerFirstPageNumber
+{
+   color:#444444;
+}
+
+
+/* 1440 X 800 */
+.DocumentSelectGridDivHighRes
+{
+    width:100%; 
+    height:526px; 
+    overflow: scroll;
+}
+
+.DocumentSelectHeaderDivHighRes
+{
+    width:100%; 
+    height:92px; 
+}
+
+
+/* 1024 X 768 */
+.DocumentSelectGridDivMedRes
+{
+    width:100%; 
+    height:386px; 
+    overflow: scroll;
+}
+
+.DocumentSelectHeaderDivMedRes
+{
+    width:100%; 
+    height:94px; 
+}
+
+/* 800 X 600 */
+.DocumentSelectGridDivLowRes
+{
+    width:100%; 
+    height:210px; 
+    overflow: scroll;
+}
+
+.DocumentSelectHeaderDivLowRes
+{
+    width:100%; 
+    height:100px; 
+}
+
+.DocumentSelectGridHeaders
+{
+    font-weight: bold;
+    background-color: #5D7B9D;
+    text-align: left;
+    color: White; 
+}
+
+.DocumentSelectGridHeaders th a
+{
+    font-weight: bold;
+    background-color: #5D7B9D;
+    text-align: left;
+    color: White; 
+}
+
+.DocumentSelectUnSelectedCellStyleNorm td
+{
+    background-color: #F7F6F3;
+    font-size: 10pt;
+    border-width: 1px;
+    border-color:inherit;
+    border-left-color:inherit;
+    border-right-color:inherit;
+    border-top-color:inherit;
+}
+
+.DocumentSelectUnSelectedCellStyleAlt td
+{
+    background-color: white;
+    font-size: 10pt;
+    border-width: 1px;
+    border-color:inherit;
+    border-left-color:inherit;
+    border-right-color:inherit;
+    border-top-color:inherit;
+}
+
+div#DocumentSelectGridViewDiv
+{
+    overflow:auto;
+    background-color: #ece9d8;
+}
+
+div#DocumentSelectHeaderDiv
+{
+    background-color: #ece9d8;
+}
+
+
+.PersonalizedGrid 
+{ 
+    border-style: none;
+    border-color: inherit;
+    border-width: 1px;
+    font-size: 8pt;
+    font-family:Arial;
+    margin: 3px;
+    text-align:left;
+    background-color:White;
+}
+
+.PersonalizedGrid td
+{
+    padding: 3px 3px 3px 3px;
+    vertical-align:middle;
+    border-left: 1px solid black;
+	border-right: 1px solid black;
+}
+
+.PersonalizedGridHeaders
+{
+    font-weight: normal;
+    font-size: 8pt;
+    background-color: #D3D3D3;
+}
+
+.PersonalizedGridItems
+{
+    background-color:#F7F6F3;
+    vertical-align:top;   
+    font-weight: normal;
+    font-size: 8pt;
+    
+}
+
+.PersonalizedGridAltItems
+{
+    background-color: white;
+    font-weight: normal;
+    font-size: 8pt;
+}
+
+.PersonalizedEditRowStyle
+{
+	border-style: solid;
+    background-color: #E0FAD8;
+    font-size: 8pt;
+    font-family:Arial;
+}
+
+.PersonalizedSelectedCellStyle td
+{
+    background-color: #E3FBDD;
+    font-size: 8pt;
+    border-width: 1px;
+    border-color:Black;
+    border-left-color:inherit;
+    border-right-color:inherit;
+    border-top-color:inherit;
+    border-bottom-color:inherit;
+}
+
+.PersonalizedUnSelectedCellStyleNorm td
+{
+    background-color: #F7F6F3;
+    font-size: 8pt;
+    border-width: 1px;
+    border-color:Black;
+    border-left-color:inherit;
+    border-right-color:inherit;
+    border-top-color:inherit;
+    border-bottom-color:inherit;
+}
+
+.PersonalizedUnSelectedCellStyleAlt td
+{
+    background-color: white;
+    font-size: 8pt;
+    border-width: 1px;
+    border-color:Black;
+    border-left-color:inherit;
+    border-right-color:inherit;
+    border-top-color:inherit;
+    border-bottom-color:inherit;
+}
+
+div#PersonalizedNotificationGridViewDiv
+{
+    overflow:auto;
+}
+
+div#PersonalizedContractListGridViewDiv
+{
+    overflow:auto;
+}
+
+.EditSBAPanel
+{
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+
+body {
+}
+.ItemDetails
+{ 
+    border: solid 1px #FFFFFF; 
+    font-size: 13px;
+    font-family:Arial;
+    margin: 3px;
+    border:1px;
+    text-align:left;
+    background-color:#F7F6F3;
+}
+
+.ItemHeaderText
+{
+    font-size: 13px;
+    font-family:Arial;
+    font-weight:bold;
+}
+
+.ItemRegularText
+{
+    font-size: 13px;
+    font-family:Arial;
+    font-weight:normal;
+}
+
+.ItemSmallText
+{
+    font-size: 10px;
+    font-family:Arial;
+    font-weight:normal;
+}
+
+.VerySmallText
+{
+    font-size: 9px;
+    font-family:Arial;
+    font-weight:normal;
+}
+
+.ItemDetailsEditArea
+{
+    background-color: #E0FAD8;
+    font-size: 13px;
+    font-family:Arial;
+    font-weight:normal;
+}
+
+.ItemDetailsFooterArea
+{
+    background-color: #E0FAD8;
+    font-size: 12px;
+    font-family:Arial;
+}
+
+.ItemPriceDetails
+{ 
+    border: solid 1px #FFFFFF; 
+    font-size: 13px;
+    font-family:Arial;
+    margin: 3px;
+    border:1px;
+    text-align:left;
+    background-color:#F7F6F3;
+}
+
+.ItemPriceDetailsEditArea
+{
+    background-color: #E0FAD8;
+    font-size: 13px;
+    font-family:Arial;
+    font-weight:normal;
+}
+
+.ItemPriceDetailsFooterArea
+{
+    background-color: #E0FAD8;
+    font-size: 12px;
+    font-family:Arial;
+}
+
+.CustomComboBoxStyle .ajax__combobox_textboxcontainer input 
+{
+    margin-right: 0px;
+    padding-right: 0px;
+}
+
+.CustomComboBoxStyle .ajax__combobox_buttoncontainer button
+{
+   margin-left: 0px;
+   padding-left: 0px;
+   text-anchor:middle;
+}
+
+.ButtonWrapText
+{
+    white-space: normal;
+}
+
+.ButtonWrapTextSmaller
+{
+    font-size:smaller;
+    white-space: normal;
+}
+
+.ItemRadioButtonList
+{
+    font-size: 13px;
+    font-family:Arial;
+    font-weight:normal;
+	white-space:nowrap;
+	text-wrap:none;
+    vertical-align:middle;
+    text-align:center;
+}
+
+.ItemSearchText
+{
+    font-size: 13px;
+    font-family:Arial;
+    font-weight:normal;
+    white-space:nowrap;
+}
+
+table.RadioButtonListWithProperWrap input
+ {    
+    float: left;
+	font-size: 13px;
+	font-family:Arial;
+	font-weight:normal;
+	white-space:nowrap;
+	vertical-align:middle;
+ }
+
+ table.RadioButtonListWithProperWrap label
+ {    
+	margin-left: 25px;
+	display: block;
+ }

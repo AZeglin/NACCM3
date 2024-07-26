@@ -1,0 +1,55 @@
+﻿<asp:Button runat="server"
+Font-Name="Arial"
+Font-Size="13px" />
+
+<asp:Button SkinId="HeaderButton" runat="server"
+Font-Name="Arial"
+Font-Size="14px" />
+
+<asp:Label runat="server"
+Font-Name="Arial"
+Font-Size="13px" />
+
+<asp:Label SkinId="HeaderLabel" runat="server"
+Font-Name="Arial"
+Font-Size="14px" />
+
+<asp:TableRow runat="server"
+Font-Name="Arial"
+Font-Size="14px" 
+Font-Bold="false" />
+
+<asp:TableRow SkinId="TableRow" runat="server"
+Font-Name="Arial"
+Font-Size="14px" 
+Font-Bold="false" />
+
+<asp:TableHeaderCell runat="server"
+Font-Name="Arial"
+Font-Size="14px" 
+Font-Bold="false" />
+
+<asp:TableHeaderCell SkinId="TableHeaderCell" runat="server"
+Font-Name="Arial"
+Font-Size="14px" 
+Font-Bold="false"  />
+
+<ep:TextBox SkinId="DateTextBox" runat="server"
+Font-Name="Arial"
+Font-Size="13px"
+Width="75px" />
+
+<ep:TextBox runat="server"
+Font-Name="Arial"
+Font-Size="13px" />
+
+<asp:CheckBox runat="server"
+Font-Name="Arial"
+Font-Size="13px" 
+Vertical-align="middle"  />
+
+<asp:Button SkinId="SmallItemButton" runat="server"
+Font-Name="Arial"
+Font-Size="12px" 
+Vertical-Align="center" />
+
