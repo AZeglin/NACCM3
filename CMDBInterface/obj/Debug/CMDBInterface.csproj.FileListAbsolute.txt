@@ -1,0 +1,9 @@
+E:\NACCMBrowserSource\PRODUCTION\CODESCAN\SCAN20240723\CMDBInterface\bin\Debug\CMDBInterface.dll
+E:\NACCMBrowserSource\PRODUCTION\CODESCAN\SCAN20240723\CMDBInterface\bin\Debug\CMDBInterface.pdb
+E:\NACCMBrowserSource\PRODUCTION\CODESCAN\SCAN20240723\CMDBInterface\bin\Debug\ApplicationSharedObj.dll
+E:\NACCMBrowserSource\PRODUCTION\CODESCAN\SCAN20240723\CMDBInterface\bin\Debug\ApplicationSharedObj.pdb
+E:\NACCMBrowserSource\PRODUCTION\CODESCAN\SCAN20240723\CMDBInterface\obj\Debug\CMDBInterface.csproj.AssemblyReference.cache
+E:\NACCMBrowserSource\PRODUCTION\CODESCAN\SCAN20240723\CMDBInterface\obj\Debug\CMDBInterface.csproj.CoreCompileInputs.cache
+E:\NACCMBrowserSource\PRODUCTION\CODESCAN\SCAN20240723\CMDBInterface\obj\Debug\CMDBInterface.csproj.CopyComplete
+E:\NACCMBrowserSource\PRODUCTION\CODESCAN\SCAN20240723\CMDBInterface\obj\Debug\CMDBInterface.dll
+E:\NACCMBrowserSource\PRODUCTION\CODESCAN\SCAN20240723\CMDBInterface\obj\Debug\CMDBInterface.pdb

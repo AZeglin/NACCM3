@@ -1,0 +1,5 @@
+E:\NACCMBrowserSource\PRODUCTION\CODESCAN\SCAN20240723\ApplicationSharedObj\bin\Debug\ApplicationSharedObj.dll
+E:\NACCMBrowserSource\PRODUCTION\CODESCAN\SCAN20240723\ApplicationSharedObj\bin\Debug\ApplicationSharedObj.pdb
+E:\NACCMBrowserSource\PRODUCTION\CODESCAN\SCAN20240723\ApplicationSharedObj\obj\Debug\ApplicationSharedObj.csproj.CoreCompileInputs.cache
+E:\NACCMBrowserSource\PRODUCTION\CODESCAN\SCAN20240723\ApplicationSharedObj\obj\Debug\ApplicationSharedObj.dll
+E:\NACCMBrowserSource\PRODUCTION\CODESCAN\SCAN20240723\ApplicationSharedObj\obj\Debug\ApplicationSharedObj.pdb
