@@ -1,0 +1,250 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/NACCM.Master" AutoEventWireup="true" CodeBehind="OfferSearch.master.cs" Inherits="VA.NAC.CM.ApplicationStartup.OfferSearch" %>
+<%@ MasterType VirtualPath="~/NACCM.Master" %>
+
+<%@ Register Assembly="NACCMBrowserObj" Namespace="VA.NAC.NACCMBrowser.BrowserObj" TagPrefix="ep" %>
+
+<asp:Content ID="OfferSearchMasterContent" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
+
+                   <script type="text/javascript" >
+
+                       Sys.WebForms.PageRequestManager.getInstance().add_beginRequest( offerSearchBeginRequest );
+                       Sys.WebForms.PageRequestManager.getInstance().add_pageLoaded( offerSearchPageLoaded );
+      
+                       var postbackElement;
+
+                       function offerSearchBeginRequest(sender, args) {
+                           postbackElement = args.get_postBackElement();
+                       }
+
+                       function offerSearchPageLoaded(sender, args) {
+                           
+                           EnableProgressIndicator(false);
+
+                           var spinnerOptions = {
+                               lines: 11, // The number of lines to draw
+                               length: 17, // The length of each line
+                               width: 5, // The line thickness
+                               radius: 11, // The radius of the inner circle
+                               scale: 1.0,  // Scales overall size of the spinner
+                               corners: 1.0, // Corner roundness (0..1)
+                               rotate: 0, // The rotation offset
+                               direction: 1, // 1: clockwise, -1: counterclockwise
+                               color: '#0A0A0A', // #rgb or #rrggbb
+                               opacity: 0,          // Opacity of the lines
+                               speed: 1.0, // Rounds per second
+                               trail: 70, // Afterglow percentage
+                               fps: 20,  // Frames per second when using setTimeout()
+                               shadow: false, // Whether to render a shadow
+                               hwaccel: false, // Whether to use hardware acceleration
+                               className: 'spinner', // The CSS class to assign to the spinner
+                               zIndex: 2e9, // The z-index (defaults to 2000000000)
+                               top: '50%', // Top position relative to parent in px
+                               left: '50%', // Left position relative to parent in px
+                               position: 'absolute'  // Element positioning
+                           };
+
+                           // run spinner and make containing div visible/hidden
+                           var progressIndicatorDiv = document.getElementById('<%=SearchProgressIndicator.ClientID %>');
+                         //  alert(progressIndicatorDiv);
+                           var spinner = new Spinner(spinnerOptions).spin(progressIndicatorDiv);
+                        //   alert(spinner);
+                       };
+
+
+                       function EnableProgressIndicator(bEnable) {
+                               
+                           var progressIndicator = document.getElementById('<%=SearchProgressIndicator.ClientID %>');
+
+                            if (progressIndicator != null) {
+                                if (bEnable == true) {
+                                    progressIndicator.style.visibility = "visible";
+
+                                    if (spinner) {
+
+                                        spinner.spin(progressIndicator);
+
+                                    }
+                                    //else {
+                                    //    alert('spinner was null');
+                                    //}
+                                }
+                                else {
+                                    progressIndicator.style.visibility = "hidden";
+                                }
+                            }
+                            //else {
+                            //    alert('progressIndicator was null');
+                            //}
+                        }
+
+                       function HideProgressIndicator() {
+                           var progressIndicator = document.getElementById('<%=SearchProgressIndicator.ClientID %>');
+                           progressIndicator.style.visibility = "hidden";
+                       }
+
+                       function simulateDefaultButton(evt) {
+                           if (evt.which || evt.keyCode) {
+                               if ((evt.which == 13) || (evt.keyCode == 13)) {
+                                   __doPostBack('<%= SearchFilterButton.UniqueID  %>', '');
+                                   return false;
+                               }
+                               return true;
+                           }
+                       }
+
+                    </script>      
+
+<ep:UpdatePanelEventProxy ID="SearchMasterUpdatePanelEventProxy" runat="server"  />
+        
+<asp:updatepanel ID="SearchMasterUpdatePanel" runat="server"  UpdateMode="Conditional" ChildrenAsTriggers="false">
+    <Triggers>
+        <asp:AsyncPostBackTrigger ControlID="SearchMasterUpdatePanelEventProxy" EventName="ProxiedEvent" />
+    </Triggers>  
+    
+    <ContentTemplate>
+    <asp:Panel ID="SearchHeaderPanel" runat="server" Width="100%" Height="100%"  OnPreRender="SearchHeaderPanel_OnPreRender" >
+
+    <table >  
+        <tr style="height:150px;">
+            <td style="height:150px;">
+                <table style="width:100%; height:150px; background-color:#E3E3E3; table-layout:fixed;">
+                    <col style="width:10%;" />
+                    <col style="width:120px;" />
+                    <col style="width:130px;" />
+                    <col style="width:140px;" />
+                    <col style="width:130px;" />
+                    <col style="width:120px;" />
+                    <col style="width:120px;" />
+                    <col style="width:10%;" />
+                    <tr style="height:20px;" class="OutsetBoxHeaderRow" >
+                        <td colspan="8"  style="vertical-align:middle; text-align:center; height:20px;" >
+                            <asp:Label ID="SearchPanelTitleLabel" runat="server" Text="Offer Search" />
+                        </td>
+                    </tr>
+                    <tr style="height:10px;">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td rowspan="5" align="center" >
+                            <div id="SearchProgressIndicator" runat="server" class="spinner" clientidmode="Static" style="z-index: 124; height: 80px; width: 80px;  position:relative;" >
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr style="height:20px;">
+                        <td></td>
+                        <td>
+                            <div>
+                                <asp:Label ID="ActiveOffersCheckBoxLabel" runat="server" CssClass="CMSearchCheckboxLabel" >
+                                    <asp:CheckBox ID="ActiveOffersCheckBox" runat="server" AutoPostBack="true"  />
+                                    Open Offers
+                                </asp:Label>
+                            </div>                            
+                        </td>
+                        <td align="right">
+                            <asp:Label ID="FilterByLabel" Text="Filter By:" runat="server" />
+                        </td>
+                        <td>
+                            <asp:DropDownList ID="SearchTypeDropDownList" runat="server" Width="98%" TabIndex="1">
+                                <asp:ListItem Text="Contracting Officer" Value="ContractingOfficer" />
+                                <asp:ListItem Text="Contractor Name" Value="Vendor" />
+                                <asp:ListItem Text="Status" Value="Status" />
+                                <asp:ListItem Text="Schedule" Value="Schedule" />
+                                <asp:ListItem Text="Offer Number" Value="OfferNumber" />
+                                <asp:ListItem Text="Linked Contract" Value="ExtendsContractNumber" />
+                            </asp:DropDownList>              
+                        </td>
+                        <td>
+                        
+                        </td>
+                        <td>
+                        
+                        </td>
+                        <td></td>
+                    </tr>
+
+                    <tr style="height:20px;">
+                         <td></td>
+                        <td>
+                            <div>
+                                <asp:Label ID="ExpiredOffersCheckBoxLabel" runat="server" CssClass="CMSearchCheckboxLabel" >
+                                    <asp:CheckBox ID="ExpiredOffersCheckBox" runat="server" AutoPostBack="true"  />
+                                    Completed Offers
+                                </asp:Label>
+                            </div>                                  
+                        </td>
+                        <td align="right">
+                            <asp:Label ID="SearchForLabel" Text="Search For:" runat="server" />
+                        </td>
+                        <td>
+                            <ep:TextBox ID="SearchFilterValueTextBox" runat="server" MaxLength="200"  Width="97%" />                    
+                        </td>
+                        <td align="left">
+                            <asp:Button ID="SearchFilterButton" runat="server" Width="78px" Text="Filter" SkinID="HeaderButton" TabIndex="3" AccessKey="F" OnClick="SearchFilterButton_OnClick"  CausesValidation="false"  OnClientClick="EnableProgressIndicator(true);"  />
+                        </td>
+                        <td align="left">
+                            <asp:Button ID="ClearFilterButton" runat="server" Width="78px" Text="Reset" SkinID="HeaderButton" TabIndex="3" AccessKey="F" OnClick="ClearFilterButton_OnClick"  CausesValidation="false"  OnClientClick="EnableProgressIndicator(true);"  />
+                        </td>
+  
+                        <td></td>                 
+                    
+                    </tr>
+                    <tr style="height:20px;">
+                        <td></td>
+                        <td>
+                            <div>
+                                <asp:Label ID="MyOffersCheckBoxLabel" runat="server" CssClass="CMSearchCheckboxLabel" >
+                                    <asp:CheckBox ID="MyOffersCheckBox" runat="server" AutoPostBack="true"  />
+                                    My Offers
+                                </asp:Label>
+                            </div>                                     
+                        </td>
+                        <td>
+                        
+                        
+                        </td>
+                        <td>
+                        
+                        </td>
+                        <td>
+                        
+                        </td>
+                        <td>
+                        
+                        </td>
+                        <td></td>                  
+                    </tr>
+                    <tr style="height:10px;">
+                        <td colspan="8" ></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr style="height: 572px; vertical-align:top;">
+            <td>
+                <div>
+                    <asp:ContentPlaceHolder ID="OfferSearchContentPlaceHolder" runat="server" ClientIDMode="Static"  >
+   
+  
+
+                    </asp:ContentPlaceHolder>
+                </div>
+            
+            </td>
+        
+        </tr>
+        <tr>
+            <td>
+                <ep:MsgBox ID="MsgBox" NameofMsgBox="OfferSearch.Master" style="z-index:103; position:absolute; left:400px; top:200px;" runat="server" />            
+            </td>
+        </tr>
+ 
+    </table>
+    </asp:Panel>
+    </ContentTemplate> 
+</asp:updatepanel> 
+</asp:Content>
+

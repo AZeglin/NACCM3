@@ -1,0 +1,994 @@
+<%@ Master Language="C#" AutoEventWireup="true"  CodeBehind="NACCM.master.cs" Inherits="VA.NAC.CM.ApplicationStartup.NACCM" %>
+
+<%@ Register Assembly="System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+    Namespace="System.Web.UI" TagPrefix="asp" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>
+
+<%@ Register Assembly="NACCMBrowserObj" Namespace="VA.NAC.NACCMBrowser.BrowserObj" TagPrefix="ep" %>
+
+<%@ Register Assembly="ApplicationSharedObj" Namespace="VA.NAC.Application.SharedObj" TagPrefix="Shared" %>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head runat="server">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <title></title>
+        <link href="ApplicationStartupDetails.css" rel="stylesheet" type="text/css" />
+        <link href="./App_Themes/CMStandard/CMStandard.css" rel="stylesheet" type="text/css" runat="server" />
+
+        <script src="Scripts/JQuery/jquery-3.7.1.min.js" type="text/javascript"></script>
+        <script src="Scripts/Ajax/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>     
+        <script src="JQuery/spin.js" type="text/javascript" ></script>   
+       
+ 
+        <script type="text/javascript" >
+           
+
+            function noBack() {
+                window.history.forward()
+            }
+            noBack();
+            window.onload = noBack;
+            window.onpageshow = function (evt) { if (evt.persisted) noBack(); }
+            window.onunload = function () { void (0); }
+
+           
+        
+        </script>
+
+</head>
+    <!--body oncontextmenu="return false;" to disable rt click menu  -->
+<body >
+    <form id="NACCMMasterForm" runat="server" >
+        <!-- injects includes to initialize ajax -->
+        <asp:ScriptManager ID="CMMasterScriptManager" runat="server" EnablePartialRendering="true" EnablePageMethods="true" LoadScriptsBeforeUI="true"   OnAsyncPostBackError="CMMasterScriptManager_OnAsyncPostBackError" >       
+        </asp:ScriptManager>
+        
+        <script type="text/javascript" >
+
+            Sys.WebForms.PageRequestManager.getInstance().add_beginRequest(NACCMMasterBeginRequest);
+            Sys.WebForms.PageRequestManager.getInstance().add_pageLoaded(NACCMMasterPageLoaded);
+            Sys.Application.add_init(NACCMMasterAppInit);
+
+            var postbackElement;
+
+            function presentConfirmationMessage(msg) {
+                $get("confirmationMessageResults").value = confirm(msg);
+            }
+
+            function presentPromptMessage(msg) {
+                $get("promptMessageResults").value = prompt(msg, "");
+            }
+
+            function presentTriStateConfirmationMessage(msg) {
+                $(function () {
+                    alert(msg);
+                });
+            }
+
+
+            function presentMsgBox(msg, yesText, noText, cancelText, nameOfHiddenField) {
+ 
+                var theMsgBox = document.getElementById('<%= MsgBox.GetClientId() %>');
+                if (MsgBox) {
+                    alert('before call');
+                    MsgBox.PopupMessageFromUpdatePanel(this, msg, yesText, noText, cancelText, nameOfHiddenField);
+                    alert('after call');
+                }
+                else {
+                    alert('MsgBox was null');
+                }
+            }
+
+            /* runs at the beginning of a client request to the server, but not at all on an async/update panel request */
+            function NACCMMasterBeginRequest(sender, args) {
+
+                postbackElement = args.get_postBackElement();
+                
+            }
+
+            /* 1 first after back end load functions, however runs before server control's client side exists */
+            $(document).ready(function () {               
+            });
+            
+
+            /* 2 runs when page is loaded, including ( observed ) for update panel update - runs after document.ready*/
+            function NACCMMasterPageLoaded(sender, args) {
+               /* toggleRightPanel();  */
+            }
+
+            /* 3 runs when page is loaded, follows document.ready and follows NACCMMasterPageLoaded */ 
+            function NACCMMasterAppInit(sender) {             
+            }
+
+            /* 4 runs when page is loaded, pageLoad follows NACCMMasterAppInit also followed document ready; this is ajax method and requires script manager; runs on every update panel update */
+            /* runs on every page load including callbacks */
+            function pageLoad(sender, args) {
+
+                
+
+                RestorePersonalizedGridSelectionOnAsyncPostback();
+
+                /* this plus setting checked as true in form load server side causes the right panel to start open */
+                var oneTimeInitHiddenFieldValue = $get("OneTimeInitHiddenField").value;
+                if (oneTimeInitHiddenFieldValue == "true") {                    
+                    hideRightPanel(false);
+                }                
+            }
+
+            /* for debug */
+            function showSessionId() {
+                var id = $get("SessionIdHiddenField").value;
+                alert('SessionId='+id);
+            }
+
+            function RestorePersonalizedGridSelectionOnAsyncPostback() {
+                var notificationPanelScrollPos = $get("notificationPanelScrollPos").value;
+                var highlightedNotificationRow = $get("highlightedNotificationRow").value;
+                var contractPanelScrollPos = $get("contractPanelScrollPos").value;
+                var highlightedPersonalizedContractRow = $get("highlightedPersonalizedContractRow").value;
+
+                RestorePersonalizedGridSelection(notificationPanelScrollPos, highlightedNotificationRow, contractPanelScrollPos, highlightedPersonalizedContractRow);
+            }
+
+ 
+
+            /* called from form load */
+            function RestorePersonalizedGridSelection(notificationPanelScrollPos, highlightedNotificationRow, contractPanelScrollPos, highlightedPersonalizedContractRow) {
+              $get("notificationPanelScrollPos").value = notificationPanelScrollPos;
+              if (notificationPanelScrollPos) {               
+                  if (notificationPanelScrollPos >= 0) {
+                      
+                      var theNotificationDiv = document.getElementById('<%=PersonalizedNotificationGridViewDiv.ClientID %>');
+                      if (theNotificationDiv) {
+                          theNotificationDiv.scrollTop = notificationPanelScrollPos;
+                      }                   
+                  }               
+              }
+             
+              $get("highlightedNotificationRow").value = highlightedNotificationRow;  
+              highlightNotificationRow();
+ 
+              $get("contractPanelScrollPos").value = contractPanelScrollPos;
+              if (contractPanelScrollPos) {
+                  if (contractPanelScrollPos >= 0) {
+                      var theContractListDiv = document.getElementById('<%=PersonalizedContractListGridViewDiv.ClientID %>');
+                      if (theContractListDiv) {
+                          theContractListDiv.scrollTop = contractPanelScrollPos;
+                      }         
+                  }
+              }
+
+              $get("highlightedPersonalizedContractRow").value = highlightedPersonalizedContractRow;     
+              highlightPersonalizedContractRow();
+      
+          }
+
+          function revertNotificationAndContractHighlighting(sourceGridName) {
+              if (sourceGridName == "PersonalizedNotificationGridView") {
+                  var rowIndex = $get("highlightedNotificationRowPrevious").value;
+                  var rowColor = $get("highlightedNotificationRowOriginalColorPrevious").value;
+              }
+              else {
+                  var rowIndex = $get("highlightedPersonalizedContractRowPrevious").value;
+                  var rowColor = $get("highlightedPersonalizedContractRowOriginalColorPrevious").value;
+              }
+
+              if (rowIndex) {
+                  if (rowColor) {
+                      resetNotificationAndContractHighlighting(sourceGridName, rowIndex, rowColor);
+                  }
+              }
+          }
+
+
+          /* called from onclick */
+          function resetNotificationAndContractHighlighting(sourceGridName, rowIndex, rowColor) {
+              if (sourceGridName == "PersonalizedNotificationGridView") {
+                  /* capture old values in case of revert */
+                  $get("highlightedNotificationRowPrevious").value = $get("highlightedNotificationRow").value;
+                  $get("highlightedNotificationRowOriginalColorPrevious").value = $get("highlightedNotificationRowOriginalColor").value;
+
+                  unhighlightNotificationRow();
+                  unhighlightPersonalizedContractRow();
+    
+                  $get("highlightedNotificationRow").value = rowIndex;
+                  $get("highlightedNotificationRowOriginalColor").value = rowColor;
+
+                  highlightNotificationRow();
+              }
+              else {
+                  /* capture old values in case of revert */
+                  $get("highlightedPersonalizedContractRowPrevious").value = $get("highlightedPersonalizedContractRow").value;
+                  $get("highlightedPersonalizedContractRowOriginalColorPrevious").value = $get("highlightedPersonalizedContractRowOriginalColor").value;
+
+                  unhighlightPersonalizedContractRow();
+                  unhighlightNotificationRow();
+                  $get("highlightedPersonalizedContractRow").value = rowIndex;
+                  $get("highlightedPersonalizedContractRowOriginalColor").value = rowColor;
+       
+                  highlightPersonalizedContractRow();
+              }
+
+              document.getElementById("<%=MainRightPanelUpdatePanel.ClientID%>").Update;
+         
+         /*     alert('up1 ok');  */
+       
+          }
+
+          function highlightNotificationRow() {
+
+              var selectedRowIndex = $get("highlightedNotificationRow").value;
+              if (selectedRowIndex == -1) {
+                  return;
+              }
+ 
+              var notificationGridView = document.getElementById("<%=PersonalizedNotificationGridView.ClientID%>"); /* ok */           
+              var currentSelectedRow = null;
+              if (notificationGridView) {
+                  currentSelectedRow = notificationGridView.rows[selectedRowIndex];   /* ok */
+              }
+              if (currentSelectedRow) {
+                  currentSelectedRow.style.backgroundColor = '#E3FBDD';
+                  currentSelectedRow.className = 'PersonalizedSelectedCellStyle'; 
+              }
+
+          }
+
+          function unhighlightNotificationRow() {
+
+              var selectedRowIndex = $get("highlightedNotificationRow").value;          
+              var highlightedNotificationRowOriginalColor = $get("highlightedNotificationRowOriginalColor").value;
+ 
+              if (selectedRowIndex == -1) {
+                  return;
+              }
+ 
+              $get("highlightedNotificationRow").value = -1;  
+              var personalizedNotificationGridView = document.getElementById("<%=PersonalizedNotificationGridView.ClientID%>");
+              var currentSelectedRow = null;
+              if (personalizedNotificationGridView) {
+                  currentSelectedRow = personalizedNotificationGridView.rows[selectedRowIndex];
+              }
+       
+              if (currentSelectedRow) {
+                  if (highlightedNotificationRowOriginalColor == 'alt') {
+                      currentSelectedRow.style.backgroundColor = 'white';
+                      currentSelectedRow.className = 'PersonalizedUnSelectedCellStyleAlt';
+                  }
+                  else if (highlightedNotificationRowOriginalColor == 'norm') {
+                      currentSelectedRow.style.backgroundColor = '#F7F6F3';
+                      currentSelectedRow.className = 'PersonalizedUnSelectedCellStyleNorm';
+                  }
+              }
+          }
+
+          function highlightPersonalizedContractRow() {
+
+              var selectedRowIndex = $get("highlightedPersonalizedContractRow").value;    
+              if (selectedRowIndex == -1) {
+                  return;
+              }
+    
+              var personalizedContractGridView = document.getElementById("<%=PersonalizedContractListGridView.ClientID%>"); /* ok */        
+              var currentSelectedRow = null;
+              if (personalizedContractGridView) {         
+                  currentSelectedRow = personalizedContractGridView.rows[selectedRowIndex]; /* ok */                
+              }
+
+              if (currentSelectedRow) {
+                  currentSelectedRow.style.backgroundColor = '#E3FBDD';
+                  currentSelectedRow.className = 'PersonalizedSelectedCellStyle';
+              }
+
+          }
+
+          function unhighlightPersonalizedContractRow() {     
+              var selectedRowIndex = $get("highlightedPersonalizedContractRow").value;
+              var highlightedPersonalizedContractRowOriginalColor = $get("highlightedPersonalizedContractRowOriginalColor").value;
+           
+              if (selectedRowIndex == -1) {
+                  return;
+              }
+       
+              $get("highlightedPersonalizedContractRow").value = -1;      
+              var personalizedContractListGridView = document.getElementById("<%=PersonalizedContractListGridView.ClientID%>");            
+              var currentSelectedRow = null;          
+              if (personalizedContractListGridView) {                
+                  currentSelectedRow = personalizedContractListGridView.rows[selectedRowIndex];               
+              }
+
+              /* this is clearing the row bottom border for the cell being cleared. If adjacent to the newly selected cell, makes it look like newly selected top border isn't working */
+              if (currentSelectedRow) {
+                  if (highlightedPersonalizedContractRowOriginalColor == 'alt') {
+                      currentSelectedRow.style.backgroundColor = 'white';
+                      currentSelectedRow.className = 'PersonalizedUnSelectedCellStyleAlt';
+                  }
+                  else if (highlightedPersonalizedContractRowOriginalColor == 'norm') {
+                      currentSelectedRow.style.backgroundColor = '#F7F6F3';                               
+                      currentSelectedRow.className = 'PersonalizedUnSelectedCellStyleNorm';
+                  }              
+              }              
+          }
+
+          /* called on grid div scroll */
+          function setPersonalizedNotificationScrollForRestore(divToScroll) {
+ 
+              if (divToScroll != "0") {
+                  $get("notificationPanelScrollPos").value = divToScroll.scrollTop;
+              }
+          }
+
+          /* called on grid div scroll */
+          function setPersonalizedContractListScrollForRestore(divToScroll) {
+      
+              if (divToScroll != "0") {    
+                  $get("contractPanelScrollPos").value = divToScroll.scrollTop;   
+              }
+          }
+
+          /* currently not called */
+          function setNotificationHighlightedRowIndexAndOriginalColor(rowIndex, originalColor) {
+              alert('setNotificationHighlightedRowIndexAndOriginalColor() start');
+              $get("highlightedNotificationRow").value = rowIndex;
+              $get("highlightedNotificationRowOriginalColor").value = originalColor;
+              alert('setNotificationHighlightedRowIndexAndOriginalColor() mid');
+              highlightNotificationRow();
+              alert('setNotificationHighlightedRowIndexAndOriginalColor() end');
+          }
+
+          /* currently not called */
+          function setPersonalizedContractListHighlightedRowIndexAndOriginalColor(rowIndex, originalColor) {
+              alert('setPersonalizedContractListHighlightedRowIndexAndOriginalColor() start');
+              $get("highlightedPersonalizedContractRow").value = rowIndex;
+              $get("highlightedPersonalizedContractRowOriginalColor").value = originalColor;
+
+              alert('setPersonalizedContractListHighlightedRowIndexAndOriginalColor() mid');
+
+              highlightPersonalizedContractRow();
+              alert('setPersonalizedContractListHighlightedRowIndexAndOriginalColor() end');
+          }
+
+ 
+
+          /* referenced from backend but not called */
+          function setPersonalizedNotificationScrollOnChange(newPositionValue) {
+              alert("setPersonalizedNotificationScrollOnChange() start");
+              $get("notificationPanelScrollPos").value = newPositionValue;
+              $get("PersonalizedNotificationGridViewDiv").scrollTop = newPositionValue;
+              alert("setPersonalizedNotificationScrollOnChange() end");
+          }
+
+ 
+
+          /* referenced from backend but not called */
+          function setPersonalizedContractListScrollOnChange(newPositionValue) {
+              alert("setPersonalizedContractListScrollOnChange() start");
+              $get("contractPanelScrollPos").value = newPositionValue;
+              $get("PersonalizedContractListGridViewDiv").scrollTop = newPositionValue;
+              alert("setPersonalizedContractListScrollOnChange() emd");
+          }
+
+          function RestoreMainPanels(rightPanelState, notificationState, contractListState, rightPanelToggleEnabled) {
+             
+              $get("RightPanelControllerStateHiddenField").value = rightPanelState;
+              $get("NotificationStateHiddenField").value = notificationState;
+              $get("ContractListStateHiddenField").value = contractListState;
+              $get("RightPanelToggleEnabledHiddenField").value = rightPanelToggleEnabled;
+
+              /* restore main panels */
+              mainRightPanelObj = $('#MainRightPanel');
+              mainLeftPanelObj = $('#MainLeftPanel');
+
+              if (rightPanelState == "false") {
+                  mainRightPanelObj.width('0%');
+                  mainLeftPanelObj.width('100%');
+              }
+              else {
+                  mainRightPanelObj.width('25%');
+                  mainLeftPanelObj.width('75%');
+              }
+
+              /* restore right sub-panels */
+              if (contractListState == "open") {
+                  $('#<%=PersonalizedContractListPanelControlButton.ClientID%>').val('Hide My Contracts');
+
+                  if (notificationState == "open") {
+                      $("#<%=NotificationsPanelControlButton.ClientID%>").val('Hide My Notifications');
+                      $('#<%=NotificationsPanel.ClientID %>').height('334px');
+                      $('#<%=PersonalizedContractListPanel.ClientID %>').height('334px');
+                  }
+                  else {
+                      $("#<%=NotificationsPanelControlButton.ClientID%>").val('Show My Notifications');
+                      $('#<%=PersonalizedContractListPanel.ClientID %>').height('668px');
+                      $('#<%=NotificationsPanel.ClientID %>').height('0px');
+                  }
+              }
+              else {
+                  $('#<%=PersonalizedContractListPanelControlButton.ClientID%>').val('Show My Contracts');
+
+                  if (notificationState == "open") {
+                      $("#<%=NotificationsPanelControlButton.ClientID%>").val('Hide My Notifications');
+                      $('#<%=NotificationsPanel.ClientID %>').height('668px');
+                      $('#<%=PersonalizedContractListPanel.ClientID %>').height('0px');
+                  }
+                  else {
+                      $("#<%=NotificationsPanelControlButton.ClientID%>").val('Show My Notifications');
+                      $('#<%=NotificationsPanel.ClientID %>').height('0px');
+                      $('#<%=PersonalizedContractListPanel.ClientID %>').height('0px');
+                  }
+              }
+
+              if (rightPanelToggleEnabled == "true") {
+                  $("#<%=RightPanelToggleCheckBox.ClientID%>").enabled = true;
+              }
+              else {
+                  $("#<%=RightPanelToggleCheckBox.ClientID%>").enabled = false;
+              }
+
+              /*        restoreSBAPanels(rightPanelState);*/
+          }
+
+          function toggleRightPanel() {
+
+              mainRightPanelObj = $('#MainRightPanel');
+              mainLeftPanelObj = $('#MainLeftPanel');
+
+              isExpanded = $get("RightPanelControllerStateHiddenField").value;
+              if (isExpanded == "false") {
+                  $get("RightPanelControllerStateHiddenField").value = "true";
+                  mainRightPanelObj.width('25%');
+                  mainLeftPanelObj.width('75%');
+              }
+              else {
+                  $get("RightPanelControllerStateHiddenField").value = "false";
+                  mainRightPanelObj.width('0%');
+                  mainLeftPanelObj.width('100%');
+              }
+
+             
+
+           /*   toggleSBAPanels(isExpanded);*/
+          }
+
+
+          function restoreSBAPanels(rightPanelState) {
+              if (rightPanelState == "false") {
+                  toggleSBAPanels("true");
+              }
+              else {
+                  toggleSBAPanels("false");
+              }
+          }
+
+          function toggleSBAPanels(isExpanded) {
+              var sbaBodyTable = document.getElementById('sbaBodyTable');
+              if (sbaBodyTable) {
+                  var sbaLeftColumn = sbaBodyTable.getElementsByTagName('col')[0];
+                  var sbaRightColumn = sbaBodyTable.getElementsByTagName('col')[1];
+                  var projectionGridPanel = sbaBodyTable.getElementById('ProjectionGridPanel');
+                  if (sbaLeftColumn) {
+                      /* right panel getting expanded, so hide sba left panel */
+                      if (isExpanded == "false") {
+                          /* sbaLeftColumn.style.visibility = "collapse";*/
+                          /*  sbaLeftColumn.width('0%');*/
+                          sbaLeftColumn.style.visibility = "collapse";
+                          sbaRightColumn.width('100%');
+                          if (projectionGridPanel) {
+                              projectionGridPanel.width('100%');
+                          }
+                          else {
+                              alert('panel not found');
+                          }
+
+                      }
+                          /* else, show sba left panel */
+                      else {
+                          /*sbaLeftColumn.style.visibility = "";*/
+                          /*    sbaLeftColumn.width('31%');*/
+                          sbaLeftColumn.style.visibility = "";
+                          sbaRightColumn.width('69%');
+                          if (projectionGridPanel) {
+                              projectionGridPanel.width('69%');
+                          }
+                          else {
+                              alert('panel not found');
+                          }
+                      }
+                  }
+                  else {
+                      alert('sbaLeftColumn was null');
+                  }
+              }
+              else {
+                  alert('sbaBodyTable was null');
+              }
+          }       
+
+          function hideRightPanel(bHide) {
+            /*  alert('hideRightPanel=' + bHide); */
+              isExpanded = $get("RightPanelControllerStateHiddenField").value;
+          /*    alert('isExpanded=' + isExpanded); */
+              if (isExpanded == "true" && bHide) {
+            /*      alert('calling toggle 1');   */
+                  toggleRightPanel();
+              }
+              else if (isExpanded == "false" && !bHide) {
+             /*     alert('calling toggle 2');    */
+                  toggleRightPanel();
+              }
+              else {
+                  alert('not calling toggle bHide=' + bHide + ' isExpanded=' + isExpanded);
+              }
+
+          }
+
+          function expandShrinkPersonalizedContractList() {
+
+                notificationState = $get("NotificationStateHiddenField").value;
+                contractListState = $get("ContractListStateHiddenField").value;
+
+                if (contractListState == "open") {
+                    $('#<%=PersonalizedContractListPanelControlButton.ClientID%>').val('Show My Contracts');
+                    $get("ContractListStateHiddenField").value = "closed";
+
+                    if (notificationState == "open") {
+                        /* expand n more collapse c at the bottom */
+                        $('#<%=NotificationsPanel.ClientID %>').height('668px');
+
+                        $('#<%=PersonalizedContractListPanel.ClientID %>').height('0px');
+                    }
+                    else {
+                        /* n already collapsed, collapse c at the top under n */
+                        $('#<%=PersonalizedContractListPanel.ClientID %>').height('0px');
+                    }
+                }
+                else {
+                    $('#<%=PersonalizedContractListPanelControlButton.ClientID%>').val('Hide My Contracts');
+                    $get("ContractListStateHiddenField").value = "open";
+
+                    if (notificationState == "open") {
+                        /* n already open to max, collapse n to 50% and expand c to 50% */
+                        $('#<%=NotificationsPanel.ClientID %>').height('334px');
+                        $('#<%=PersonalizedContractListPanel.ClientID %>').height('334px');
+                    }
+                    else {
+                        /* n already closed, expand c to max just under n */
+                        $('#<%=PersonalizedContractListPanel.ClientID %>').height('668px');
+                    }
+              }
+
+              /* for debug showSessionId(); */
+          }
+
+          function expandShrinkNotificationsPanel() {
+              
+              notificationState = $get("NotificationStateHiddenField").value;
+              contractListState = $get("ContractListStateHiddenField").value;
+
+              if (notificationState == "open") {
+                  $("#<%=NotificationsPanelControlButton.ClientID%>").val('Show My Notifications');
+                  $get("NotificationStateHiddenField").value = "closed";
+
+                  if (contractListState == "open") {
+                      /* expand c more collapse n at the top */
+                      $('#<%=PersonalizedContractListPanel.ClientID %>').height('668px');
+                      $('#<%=NotificationsPanel.ClientID %>').height('0px');
+                      /* move to top */                   
+                  }
+                  else {
+                      /* c already collapsed, collapse n at the top and move c up under n */
+                      $('#<%=NotificationsPanel.ClientID %>').height('0px');
+                      /* move n and c up */                   
+                  }
+              }
+              else {
+
+                  $("#<%=NotificationsPanelControlButton.ClientID%>").val('Hide My Notifications');
+                  $get("NotificationStateHiddenField").value = "open";
+
+                  if (contractListState == "open") {
+                      /* c already open to max, collapse c to 50% and expand n to 50% */
+                      $('#<%=PersonalizedContractListPanel.ClientID %>').height('334px');
+                      $('#<%=NotificationsPanel.ClientID %>').height('334px');  
+                  }
+                  else {
+                      /* c already closed, expand n to max over n */
+                      $('#<%=NotificationsPanel.ClientID %>').height('668px');
+                  }
+              }
+          }
+
+          function notificationContractNumberMouseChange(contractButton, overOut, rowIndex, rowColor) {
+              if (overOut == 'over') {
+                  contractButton.style.color = 'purple';
+                  contractButton.style.cursor = 'hand';
+              }
+              else {
+                  contractButton.style.color = 'black';
+                  contractButton.style.cursor = 'pointer';
+              }
+          }
+
+          function contractListContractNumberMouseChange(contractButton, overOut, rowIndex, rowColor) {
+              if (overOut == 'over') {
+                  contractButton.style.color = 'purple';
+                  contractButton.style.cursor = 'hand';
+              }
+              else {
+                  contractButton.style.color = 'black';
+                  contractButton.style.cursor = 'pointer';
+              }
+          }
+
+        /*  $(document).bind('keydown', 'ctrl+q', function () {
+              alert('You found the hotkey!');
+          });  */
+          
+      /*    $(window).bind('keydown', function (event) {
+              if (event.ctrlKey || event.metaKey) {
+                  switch (String.fromCharCode(event.which).toLowerCase()) {
+                      case 'd':
+                          event.preventDefault();
+                          alert('ctrl-d');
+                          break;
+                      case 'v':
+                          event.preventDefault();
+                          alert('ctrl-v');
+                          break;
+                      case 'g':
+                          event.preventDefault();
+                          alert('ctrl-g');
+                          break;
+                  }
+              }
+          }); */
+
+          /* can use to add a client function to each menu choice 
+          $(function () {
+
+              $(".staticMenuItemStyle a").each(function (index) {
+                  $(this).click(function () {
+
+                      TestMessageBox();
+                  });
+
+              });
+          });
+          
+          */
+
+          /* this has been used to verify that the popup works fine */
+          function TestMessageBox() {
+            alert('Before ClientId');
+            var clientId = $get("ServerConfirmationDialogResults").id;
+            alert('After ClientId');
+            window.open('PopupEditWindow.aspx?Message=Save&YesText=yes&NoText=no&CancelText=cancel&NameOfHiddenField=ServerConfirmationDialogResults&ClientIdOfHiddenField='+ clientId + ' ', 'PopupEditWindow', 'toolbar=no,menubar=no,resizable=no,scrollbars=no,width=400,height=200');
+          }
+
+        </script>
+
+        <table style="width:100%; table-layout:fixed;">
+            <tr style="background-color:#C3C3C3;">
+                <td >
+                    <ep:UpdatePanelEventProxy ID="MainHeaderUpdatePanelEventProxy" runat="server"  />
+       
+                    <asp:updatepanel ID="MainHeaderUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="false" >
+                        <Triggers>
+                  
+                            <asp:AsyncPostBackTrigger ControlID="MainHeaderUpdatePanelEventProxy" EventName="ProxiedEvent" />
+                        </Triggers>
+                         <ContentTemplate>
+                              <table style="width:100%; height:100%; overflow:scroll;" role="banner" >
+                                <tr>
+                                    <td rowspan="3">
+                                        <img src="Images/va_logo.gif" alt="VA Logo" style="height:60px; width:60px;" />
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>     
+                                    <td>
+                                    </td>                              
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td style="width:240px; text-align:left;">
+                                        <table style="table-layout:fixed; height:60px;">
+                                            <tr>
+                                                <td style="font-family:Haettenschweiler; color:#000099; font-size:large; font-style:italic" >National Acquisition Center</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-family:Georgia; font-size:medium">Contract Management Database</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-family:Georgia; font-size:x-small;  text-align:left;">
+                                                    NAC CM Version 2.4B
+                                                 </td>         
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td rowspan="3" style="width:40px; height:94%;">
+                            
+                                    </td>
+                                    <td rowspan="3"  style="vertical-align:middle;">
+                                        <table style="table-layout:fixed;">
+                                            <tr style="height:5px;">
+                                                <td>
+                                                </td>
+                                            </tr>                                       
+                                            <tr style="height:30px;">
+                                                <td>
+                                                    <ep:EdgeMenu ID="MainMenu" runat="server" ClientIDMode="Static" OnPreRender="MainMenu_OnPreRender"  OnInit="MainMenu_OnInit" 
+                                                        MenuDisabledColor="#808080"  MenuSelectedColor="#FFFFFF"  MenuMouseOverColor="#E6E6E6" >
+                                                    </ep:EdgeMenu>
+                                                   
+                                                </td>
+                                            </tr>                                          
+                                        </table>
+                                    </td>
+                                    <td style="width:140px; text-align:left; vertical-align:bottom;">
+                                        <table>
+                                            <tr style="height:84%;">
+                                                <td>
+                                                </td>
+                                            </tr>
+                                            <tr style="height:16%;">
+                                                <td style="text-align:left;">
+                                                    <asp:CheckBox ID="RightPanelToggleCheckBox" runat="server" CssClass="RegularText" Text="Personalized View" OnCheckedChanged="RightPanelToggleCheckBox_OnCheckedChanged" EnableViewState="true"  />
+                                                </td>
+
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                   <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                        
+                                    </td>
+                                 </tr>
+
+                            </table>
+                         </ContentTemplate>
+                       
+                    </asp:updatepanel>
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    <div id="HiddenDiv"  style="width:0px; height:0px; border:none; background-color:White; margin:0px;" >
+                        <asp:HiddenField ID="ScreenHeightHiddenField" runat="server" ClientIDMode="Static" Value="-1" EnableViewState="true" />
+                        <asp:HiddenField ID="ScreenWidthHiddenField" runat="server" ClientIDMode="Static" Value="-1"  EnableViewState="true" />
+                        <asp:HiddenField ID="ServerConfirmationDialogResults" runat="server" Value="false" ClientIDMode="Static" /> 
+                        <asp:HiddenField ID="SessionIdHiddenField" runat="server" ClientIDMode="Static" Value="-1"  EnableViewState="true" />
+                        <asp:HiddenField ID="OneTimeInitHiddenField" runat="server" ClientIDMode="Static" Value="false"  EnableViewState="true" />
+                        <asp:HiddenField ID="PreventMultipleInstancesHiddenField" runat="server" ClientIDMode="Static" Value=""  EnableViewState="true" />
+                    </div>     
+                </td>
+            </tr>
+
+            <tr  style="height:728px; vertical-align:top;">
+                <td>
+                    <table style="width:100%; height:726px; table-layout:fixed;">
+                        <tr style="vertical-align:top;">
+                            <td  style="background-color:Window; width:100%; height:724px;">
+                               <asp:Panel runat="server" ID="MainLeftPanel"  CssClass="mainWindowLeft" ClientIDMode="Static" HorizontalAlign="Left" Height="722px" role="main">
+                                           <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server" ClientIDMode="Static" >
+        
+                                             </asp:ContentPlaceHolder>
+ 
+                                        
+                                </asp:Panel>
+
+  
+                                <asp:Panel   runat="server" ID="MainRightPanel"  CssClass="mainWindowRight" ClientIDMode="Static"  HorizontalAlign="Right" >
+                                    <div id="RightPanelHiddenDiv"  style="width:0px; height:0px; border:none; background-color:White; margin:0px;" >
+
+                                        <asp:HiddenField ID="notificationPanelScrollPos" runat="server" ClientIDMode="Static" Value="0"  EnableViewState="true" />
+                                        <asp:HiddenField ID="highlightedNotificationRow" runat="server" ClientIDMode="Static" Value="-1" EnableViewState="true" />
+                                        <asp:HiddenField ID="highlightedNotificationRowOriginalColor" runat="server" ClientIDMode="Static" Value="norm"  EnableViewState="true" />
+                                        <asp:HiddenField ID="highlightedNotificationRowPrevious" runat="server" ClientIDMode="Static" Value="-1" EnableViewState="true" />
+                                        <asp:HiddenField ID="highlightedNotificationRowOriginalColorPrevious" runat="server" ClientIDMode="Static" Value="norm"  EnableViewState="true" />
+
+                                        <asp:HiddenField ID="contractPanelScrollPos" runat="server" ClientIDMode="Static" Value="0"  EnableViewState="true" />
+                                        <asp:HiddenField ID="highlightedPersonalizedContractRow" runat="server" ClientIDMode="Static" Value="-1"  EnableViewState="true" />
+                                        <asp:HiddenField ID="highlightedPersonalizedContractRowOriginalColor" runat="server" ClientIDMode="Static" Value="norm"  EnableViewState="true" />
+                                        <asp:HiddenField ID="highlightedPersonalizedContractRowPrevious" runat="server" ClientIDMode="Static" Value="-1"  EnableViewState="true" />
+                                        <asp:HiddenField ID="highlightedPersonalizedContractRowOriginalColorPrevious" runat="server" ClientIDMode="Static" Value="norm"  EnableViewState="true" />
+                                        
+                                        <asp:HiddenField ID="RightPanelControllerStateHiddenField" runat="server" ClientIDMode="Static" Value="false"  EnableViewState="true" />
+                                        <asp:HiddenField ID="NotificationStateHiddenField" runat="server" ClientIDMode="Static" Value="open" EnableViewState="true" />
+                                        <asp:HiddenField ID="ContractListStateHiddenField" runat="server" ClientIDMode="Static" Value="open"  EnableViewState="true" />
+
+                                        <asp:HiddenField ID="RightPanelToggleEnabledHiddenField" runat="server" ClientIDMode="Static" Value="true"  EnableViewState="true" />
+
+                                       
+                                    </div> 
+                                    <ep:UpdatePanelEventProxy ID="MainRightPanelUpdatePanelEventProxy" runat="server"  />
+                                       <asp:updatepanel ID="MainRightPanelUpdatePanel" runat="server"  UpdateMode="Conditional" ChildrenAsTriggers="false">
+                                        <Triggers>
+                                            <asp:AsyncPostBackTrigger ControlID="MainRightPanelUpdatePanelEventProxy" EventName="ProxiedEvent" />
+                                        </Triggers>  
+                                        <ContentTemplate>
+                                    
+                                            <table style="width:100%; height:722px; table-layout:fixed;">
+                                                <tr  style="border: solid 1px black" >
+                                                    <td style="width:100%; vertical-align:top;">
+                                               
+                                                        <asp:Button ID="NotificationsPanelControlButton" runat="server" Text="Hide My Notifications" OnClientClick="javascript:expandShrinkNotificationsPanel();return false;"/>
+                                    
+                                                        <asp:Panel ID="NotificationsPanel" runat="server" CssClass="mainRightTopSubPanel" ClientIDMode="Static">
+                              
+                                                           <div id="PersonalizedNotificationGridViewDiv"  runat="server" style="width:100%; height:99%; overflow: scroll;" onscroll="javascript:setPersonalizedNotificationScrollForRestore( this );"  onkeypress="javascript:setPersonalizedNotificationScrollForRestore( this );" role="navigation" aria-label="my notifications" >
+
+                                                                <ep:GridView ID="PersonalizedNotificationGridView" 
+                                                                            runat="server" 
+                                                                            EnableViewState="true"
+                                                                            AutoGenerateColumns="False" 
+                                                                            DataKeyNames="PersonalizedNotificationId, Contract_Record_ID, Schedule_Number"  
+                                                                            Width="99%" 
+                                                                            CssClass="PersonalizedGrid" 
+                                                                            Visible="True" 
+                                                                            OnRowDataBound="PersonalizedNotificationGridView_RowDataBound"
+                                                                            OnRowCommand="PersonalizedNotificationGridView_OnRowCommand"
+                                                                            OnPreRender="PersonalizedNotificationGridView_PreRender"
+                                                                            AllowSorting="True" 
+                                                                            AutoGenerateEditButton="false"
+                                                                            EditRowStyle-CssClass="PersonalizedEditRowStyle" 
+                                                                            OnRowCreated="PersonalizedNotificationGridView_OnRowCreated"              
+                                                                            AllowInserting="True"
+                                                                           
+                                                                            EmptyDataRowStyle-CssClass="PersonalizedGrid" 
+                                                                            EmptyDataText="All NACCM data is current."
+                                                                            ContextMenuID="ItemContextMenu"  >
+                                                                        <HeaderStyle CssClass="PersonalizedGridHeaders" />
+                                                                        <RowStyle  CssClass="PersonalizedGridItems"  HorizontalAlign="Left" VerticalAlign="Top" />
+                                                                        <AlternatingRowStyle CssClass="PersonalizedGridAltItems" />
+                                                                       
+                                                                        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+
+                                                                        <Columns>   
+                                                                            
+                                                                                <asp:TemplateField HeaderText="Contract"  ControlStyle-Font-Size="9px"  >
+                                                                                    <ItemTemplate>
+                                                                                       <asp:Button  ID="SelectContractButton" runat="server" CssClass="documentSelectButton" UseSubmitBehavior="false" CommandName="EditNotificationContract" CommandArgument='<%# Container.DataItemIndex + "," + Eval( "Contract_Record_ID" ) + "," + Eval( "ContractNumber" ) + "," + Eval( "Schedule_Number" ) %>' 
+                                                                                            Width="80px" OnDataBinding="SelectContractButton_OnDataBinding"   />                                                                                                                        
+                                                                                   </ItemTemplate>                                                            
+                                                                                </asp:TemplateField>
+
+                                                                                <asp:TemplateField HeaderText="Notification"  ControlStyle-Font-Size="9px"  >
+                                                                                    <ItemTemplate>
+                                                                                        <asp:Label ID="notificationMessageLabel" runat="server"  Width="84px"  Text='<%# DataBinder.Eval( Container.DataItem, "NotificationMessage" )%>' ></asp:Label>
+                                                                                    </ItemTemplate>
+                                                                                </asp:TemplateField>
+
+                                                                                <asp:TemplateField HeaderText="Vendor"  ControlStyle-Font-Size="9px"  >
+                                                                                    <ItemTemplate>
+                                                                                        <asp:Label ID="vendorNameLabel" runat="server"  Width="62px"  Text='<%# DataBinder.Eval( Container.DataItem, "VendorName" )%>' ></asp:Label>
+                                                                                    </ItemTemplate>
+                                                                                </asp:TemplateField>
+
+                                                                                <asp:TemplateField HeaderText="CO"  ControlStyle-Font-Size="9px"  >
+                                                                                    <ItemTemplate>
+                                                                                        <asp:Label ID="fullNameLabel" runat="server"    Width="48px"  Text='<%# DataBinder.Eval( Container.DataItem, "FullName" )%>' ></asp:Label>
+                                                                                    </ItemTemplate>
+                                                                                </asp:TemplateField>
+                                                                   
+                                                                                <asp:TemplateField HeaderText="Personalized Notification Id"  ControlStyle-Font-Size="9px"  >
+                                                                                    <ItemTemplate>
+                                                                                        <asp:Label ID="PersonalizedNotificationIdLabel" runat="server"  Width="50px"  Text='<%# DataBinder.Eval( Container.DataItem, "PersonalizedNotificationId" )%>' ></asp:Label>
+                                                                                    </ItemTemplate>
+                                                                                </asp:TemplateField>
+                                                                        </Columns>
+                                                                    </ep:GridView>                                              
+                                                            </div>          
+                                                        </asp:Panel>
+                                            
+                                                
+                                                        <asp:Button ID="PersonalizedContractListPanelControlButton" runat="server" Text="Hide My Contracts" OnClientClick="javascript:expandShrinkPersonalizedContractList();return false;"/>
+                                    
+                                                        <asp:Panel ID="PersonalizedContractListPanel" runat="server"  CssClass="mainRightBottomSubPanel" ClientIDMode="Static">
+                                                    
+                                                            <div id="PersonalizedContractListGridViewDiv"  runat="server" style="width:100%; height:99%; overflow: scroll;" onscroll="javascript:setPersonalizedContractListScrollForRestore( this );"  onkeypress="javascript:setPersonalizedContractListScrollForRestore( this );" role="navigation" aria-label="my contracts" >
+                                                           
+                                                                     <ep:GridView ID="PersonalizedContractListGridView" 
+                                                                                runat="server" 
+                                                                                EnableViewState="true"
+                                                                                DataKeyNames="Contract_Record_ID, Schedule_Number"  
+                                                                                AutoGenerateColumns="False" 
+                                                                                Width="99%" 
+                                                                                RowStyle-Height="36px"
+                                                                                CssClass="PersonalizedGrid" 
+                                                                                Visible="True" 
+                                                                                AllowSorting="False" 
+                                                                                OnRowDataBound="PersonalizedContractListGridView_RowDataBound"
+                                                                                OnRowCommand="PersonalizedContractListGridView_OnRowCommand"
+                                                                                AutoGenerateEditButton="false"
+                                                                                EditRowStyle-CssClass="PersonalizedEditRowStyle" 
+                                                                                onprerender="PersonalizedContractListGridView_PreRender"
+                                                                                EmptyDataRowStyle-CssClass="PersonalizedGrid" 
+                                                                                EmptyDataText="There are no contracts for the current user."
+                                                                                ContextMenuID=""
+                                                                               >
+                                                                            <HeaderStyle CssClass="PersonalizedGridHeaders" />
+                                                                            <RowStyle  CssClass="PersonalizedGridItems"  HorizontalAlign="Left" VerticalAlign="Top" />
+                                                                            <AlternatingRowStyle CssClass="PersonalizedGridAltItems" />
+                                                                          
+                                                                            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                     
+                                                                            <Columns>   
+                                            
+                                                                                <asp:TemplateField  HeaderText="Contract" ControlStyle-Width="78px" ControlStyle-Font-Size="9px"  >                                                        
+                                                                                    <ItemTemplate>                                                                                        
+                                                                                         <asp:Button  ID="SelectContractButton" runat="server" CssClass="documentSelectButton" UseSubmitBehavior="false" CommandName="EditPersonalContract" CommandArgument='<%# Container.DataItemIndex + "," + Eval( "Contract_Record_ID" ) + "," + Eval( "CntrctNum" ) + "," + Eval( "Schedule_Number" ) %>' 
+                                                                                            Width="78px" Text='<%# Eval( "CntrctNum" ) %>'  />                                 
+                                                                                    </ItemTemplate>
+                                                                                </asp:TemplateField>      
+                                                                           
+                                                                                <asp:BoundField DataField="Schedule_Name" HeaderText="Schedule" />
+                                                                                                                                  
+                                                                                <asp:BoundField DataField="Contractor_Name" HeaderText="Contractor Name" />
+                                           
+                                                                                <asp:BoundField DataField="Drug_Covered" HeaderText="Description" />
+                                           
+                                                                                <asp:BoundField DataField="Dates_CntrctAward" HeaderText="Award Date"  DataFormatString="{0:d}" />
+                                              
+                                                                                <asp:TemplateField  HeaderText="Expiration Date"  ControlStyle-Width="80px" ControlStyle-Font-Size="8pt"   >   
+                                                                                    <ItemTemplate>
+                                                                                        <table>
+                                                                                            <tr>
+                                                                                                <td style="border:none;">
+                                                                                                    <asp:Label runat="server" ID="ContractExpirationDate" Text='<%# Eval( "Dates_CntrctExp", "{0:d}" ) %>' />
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td style="border:none;">
+                                                                                                    <asp:Label runat="server" ID="ContractCancellationDate" ForeColor="Red" OnDataBinding="ContractCancellationDate_OnDataBinding" /> 
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </table>
+                                                  
+                                                                                    </ItemTemplate>
+                                                                                 </asp:TemplateField>      
+   
+                                                                            </Columns>
+                            
+                                                                    </ep:GridView>
+
+                                                                </div>
+                                                            </asp:Panel>   
+                                                        </td>
+                                                    </tr>               
+                                                </table>
+                                
+                                         </ContentTemplate> 
+                                      </asp:updatepanel> 
+                                </asp:Panel>
+                               
+                            </td>
+                        </tr>               
+                    </table>            
+                </td>
+             </tr>
+
+        </table>
+        
+        
+        <ep:MsgBox ID="MsgBox" NameofMsgBox="NACCM.Master" style="z-index:103; position:absolute; left:400px; top:200px;" runat="server" ClientIDMode="Static" />
+    </form>
+  
+</body>
+</html>
