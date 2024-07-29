@@ -1,0 +1,9 @@
+E:\NACCMBrowserSource\PRODUCTION\CODESCAN\SCAN20240723\NACUserRoleObj\bin\Debug\NACUserRoleObj.dll
+E:\NACCMBrowserSource\PRODUCTION\CODESCAN\SCAN20240723\NACUserRoleObj\bin\Debug\NACUserRoleObj.pdb
+E:\NACCMBrowserSource\PRODUCTION\CODESCAN\SCAN20240723\NACUserRoleObj\bin\Debug\ApplicationSharedObj.dll
+E:\NACCMBrowserSource\PRODUCTION\CODESCAN\SCAN20240723\NACUserRoleObj\bin\Debug\ApplicationSharedObj.pdb
+E:\NACCMBrowserSource\PRODUCTION\CODESCAN\SCAN20240723\NACUserRoleObj\obj\Debug\NACUserRoleObj.csproj.AssemblyReference.cache
+E:\NACCMBrowserSource\PRODUCTION\CODESCAN\SCAN20240723\NACUserRoleObj\obj\Debug\NACUserRoleObj.csproj.CoreCompileInputs.cache
+E:\NACCMBrowserSource\PRODUCTION\CODESCAN\SCAN20240723\NACUserRoleObj\obj\Debug\NACUserRoleObj.csproj.CopyComplete
+E:\NACCMBrowserSource\PRODUCTION\CODESCAN\SCAN20240723\NACUserRoleObj\obj\Debug\NACUserRoleObj.dll
+E:\NACCMBrowserSource\PRODUCTION\CODESCAN\SCAN20240723\NACUserRoleObj\obj\Debug\NACUserRoleObj.pdb
