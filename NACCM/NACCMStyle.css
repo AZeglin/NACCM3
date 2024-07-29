@@ -1,0 +1,97 @@
+.RebateGrid 
+{ 
+    border-style: none;
+    border-color: inherit;
+    border-width: 1px;
+    font-size: 10pt;
+    font-family:Arial;
+    margin: 3px;
+    text-align:left;
+    background-color:White;
+}
+
+.RebateGrid td
+{
+    padding: 3px 3px 3px 3px;
+    vertical-align:middle;
+
+}
+
+.RebateGridHeaders
+{
+    font-weight: bold;
+    background-color: #8b8dbb;
+}
+
+.RebateGridItems
+{
+    background-color:#F7F6F3;
+    vertical-align:top;   
+}
+
+.RebateGridAltItems
+{
+    background-color: white;
+}
+
+.RebateFooterStyle
+{
+    background-color: #5D7B9D;
+    font-weight: bold;    
+}
+
+.RebateEditRowStyle
+{
+    background-color: #E0FAD8;
+    font-size: 10pt;
+    font-family:Arial;
+}
+
+.RebateMultilineInEditMode
+{
+    font-size: 10pt;
+    font-family:Arial;
+}
+
+.RebateSelectedCellStyle td
+{
+    background-color: #E3FBDD;
+    font-size: 10pt;
+    border-width: 1px;
+    border-color:Black;
+    border-left-color:inherit;
+    border-right-color:inherit;
+    border-top-color:Black;
+}
+
+.RebateHighlightedRowStyle
+{
+    border-width: 4px;
+}
+
+.RebateEditCellStyle
+{
+    border: none 0px;
+}
+
+.ForceBoundFieldWidth
+{
+     width: 120px;
+}
+
+
+div#RebateGridViewDiv
+{
+    overflow:auto;
+}
+
+.HighlightedMissingData
+{
+    background-color: #F7F1BF;
+}
+
+.HighlightedOutOfRangeData
+{
+    background-color: #FFD6C6;
+}
+
