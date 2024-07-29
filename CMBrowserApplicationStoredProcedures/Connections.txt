@@ -1,0 +1,34 @@
+DBRefFolders found in your dbp file
+Connect String: Data Source=AMMHINDEVAPP2;Initial Catalog=NACSEC;Integrated Security=True
+Provider: Microsoft SQL Server
+
+Connect String: Data Source=AMMHINDEVDB;Initial Catalog=NAC_CM;Integrated Security=True
+Provider: Microsoft SQL Server
+
+Connect String: Data Source=ammhinsql1;Initial Catalog=NAC_CM;Integrated Security=True
+Provider: Microsoft SQL Server
+
+Connect String: Data Source=AMMHINSQL1;Initial Catalog=NACSEC;Integrated Security=True
+Provider: Microsoft SQL Server
+
+Connect String: Data Source=AMMHINSQL2;Initial Catalog=DrugItem;Integrated Security=True
+Provider: Microsoft SQL Server
+
+Connect String: Data Source=AMMHINSQL2;Initial Catalog=NAC_CM;Integrated Security=True
+Provider: Microsoft SQL Server
+
+Connect String: Data Source=AMMHINSQL2;Initial Catalog=NACSEC;Integrated Security=True
+Provider: Microsoft SQL Server
+
+Connect String: Data Source=AMMHINSQL2;Initial Catalog=PriceListExport;Integrated Security=True
+Provider: Microsoft SQL Server
+
+Connect String: Data Source=AMMHINSQLPRDDB1;Initial Catalog=NAC_CM;Integrated Security=True
+Provider: Microsoft SQL Server
+
+Connect String: Data Source=AMMHINSQLPRDDB1;Initial Catalog=NAC_CM_host;Integrated Security=True
+Provider: Microsoft SQL Server
+
+Connect String: Data Source=AMMHINTESTAPP;Initial Catalog=NAC_CM;Integrated Security=True
+Provider: Microsoft SQL Server
+

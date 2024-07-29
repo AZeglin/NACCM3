@@ -1,0 +1,866 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <PostUpgradeAddToSCC>;C:\NACCMBrowser\DEVELOPMENT\DEV3\CMBrowserApplicationStoredProcedures\CMBrowserApplicationStoredProcedures.dbproj;C:\NACCMBrowser\DEVELOPMENT\DEV3\CMBrowserApplicationStoredProcedures\Connections.txt;C:\NACCMBrowser\DEVELOPMENT\DEV3\CMBrowserApplicationStoredProcedures\Scripts\Post-Deployment\Script.PostDeployment.sql;C:\NACCMBrowser\DEVELOPMENT\DEV3\CMBrowserApplicationStoredProcedures\Scripts\Pre-Deployment\Script.PreDeployment.sql</PostUpgradeAddToSCC>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProjectName>SAK</SccProjectName>
+    <PreviousProjectVersion>4.0</PreviousProjectVersion>
+    <UpgradedFromDBP>True</UpgradedFromDBP>
+    <Name>dbpProjectName</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.0</ProjectVersion>
+    <ProjectGuid>{67cbc824-a49e-4e9b-a947-360f3dfe65c3}</ProjectGuid>
+    <DSP>Microsoft.Data.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ShowWizard>False</ShowWizard>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchema</DefaultFileStructure>
+    <DeployToDatabaseAddToServerExplorer>True</DeployToDatabaseAddToServerExplorer>
+    <DeployToScript>True</DeployToScript>
+    <CatalogPropertiesFile>Properties\Database.sqlsettings</CatalogPropertiesFile>
+    <LoadSqlClrTypes>True</LoadSqlClrTypes>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>.\sql\release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString>
+    </TargetConnectionString>
+    <TargetDatabase>
+    </TargetDatabase>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings>
+    </SuppressWarnings>
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>False</DeployToDatabase>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>.\sql\debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString>
+    </TargetConnectionString>
+    <TargetDatabase>
+    </TargetDatabase>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings>
+    </SuppressWarnings>
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>False</DeployToDatabase>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'DEVAPP3WithDEVDB' ">
+    <OutputPath>.\sql\DEVAPP3WithDEVDB\</OutputPath>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'LocalWithTESTDBA' ">
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString />
+    <TargetDatabase />
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings />
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>False</DeployToDatabase>
+    <OutputPath>.\sql\LocalWithTESTDBA\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'DEVAPP3WithTESTDBA' ">
+    <OutputPath>.\sql\DEVAPP3WithTESTDBA\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'TESTAPPWithDEVDB' ">
+    <OutputPath>.\sql\TESTAPPWithDEVDB\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'TESTAPPWithTESTDBA' ">
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString />
+    <TargetDatabase />
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings />
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>False</DeployToDatabase>
+    <OutputPath>.\sql\TESTAPPWithTESTDBA\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'LocalWithDEVDB2' ">
+    <OutputPath>.\sql\LocalWithDEVDB2\</OutputPath>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'PRDAPP1WithTESTDBA' ">
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString />
+    <TargetDatabase />
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings />
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>False</DeployToDatabase>
+    <OutputPath>.\sql\PRDAPP1WithTESTDBA\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'PRDAPP1WITHPRDDB1' ">
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString />
+    <TargetDatabase />
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings />
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>False</DeployToDatabase>
+    <OutputPath>.\sql\PRDAPP1WITHPRDDB1\</OutputPath>
+  </PropertyGroup>
+  <!--Import the settings-->
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\TeamData\Microsoft.Data.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Pre-Deployment" />
+    <Folder Include="Scripts\Post-Deployment" />
+    <Folder Include="Data Generation Plans" />
+    <Folder Include="Schema Comparisons" />
+    <Folder Include="GUI" />
+  </ItemGroup>
+  <ItemGroup>
+    <PropertiesFile Include="Properties\Database.sqlsettings">
+    </PropertiesFile>
+    <PropertiesFile Include="Properties\Database.sqldeployment">
+    </PropertiesFile>
+    <PropertiesFile Include="Properties\Database.sqlcmdvars">
+    </PropertiesFile>
+    <Build Include="Properties\Database.sqlpermissions">
+      <ModelBuilderType>Permissions</ModelBuilderType>
+    </Build>
+    <PreDeploy Include="Scripts\Pre-Deployment\Script.PreDeployment.sql">
+      <SubType>Code</SubType>
+    </PreDeploy>
+    <PostDeploy Include="Scripts\Post-Deployment\Script.PostDeployment.sql">
+      <SubType>Code</SubType>
+    </PostDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Schema Objects" />
+    <Folder Include="Schema Objects\Schemas" />
+    <Folder Include="Schema Objects\Schemas\dbo" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Defaults" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Functions" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Rules" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Data Types" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Types CLR" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Table Types" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\XML Schema Collections" />
+    <Folder Include="Schema Objects\Schemas\dbo\Service Broker" />
+    <Folder Include="Schema Objects\Schemas\dbo\Service Broker\Queues" />
+    <Folder Include="Schema Objects\Schemas\dbo\Synonyms" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Constraints" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Indexes" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Keys" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Triggers" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Statistics" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\Indexes" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\Triggers" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\Statistics" />
+    <Folder Include="Schema Objects\Database Level Objects" />
+    <Folder Include="Schema Objects\Database Level Objects\Assemblies" />
+    <Folder Include="Schema Objects\Database Level Objects\Database Triggers" />
+    <Folder Include="Schema Objects\Database Level Objects\Security" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Schemas" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Users" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Certificates" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Asymmetric Keys" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Master Keys" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Signatures" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Symmetric Keys" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Database Encryption Keys" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Database Audit Specification" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\Application Roles" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\Database Roles" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Broker Priorities" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Contracts" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Event Notifications" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Message Types" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Remote Service Binding" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Routes" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Services" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Full Text Stoplists" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Filegroups" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Files" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Full Text Catalogs" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Functions" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Schemes" />
+    <Folder Include="Reports" />
+    <Folder Include="Security" />
+    <Folder Include="Properties" />
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="CreateContract.sql" />
+    <NotInBuild Include="CreateNACCMPriceListExportSpreadsheet.sql" />
+    <NotInBuild Include="GetCOIDFromUserIdFunction.sql" />
+    <NotInBuild Include="GetContractInfo.sql" />
+    <NotInBuild Include="GetContractResponsibleForSBAPlan.sql" />
+    <NotInBuild Include="GetContractResponsibleForSBAPlanFunction.sql" />
+    <NotInBuild Include="GetItemCountForMedSurgBPAContract.sql" />
+    <NotInBuild Include="GetItemCountForMedSurgContract.sql" />
+    <NotInBuild Include="GetLastDateOfMonthFunction.sql" />
+    <NotInBuild Include="GetLoginNameFromUserIdFunction.sql" />
+    <NotInBuild Include="GetLoginNameFromUserIdProc.sql" />
+    <NotInBuild Include="GetNewContractPrefix.sql" />
+    <NotInBuild Include="GetOfferInfo.sql" />
+    <NotInBuild Include="GetParentContractInfo.sql" />
+    <NotInBuild Include="GetUserInfo.sql" />
+    <NotInBuild Include="HasChildBPAContractFunction.sql" />
+    <NotInBuild Include="InsertUserActivity.sql" />
+    <NotInBuild Include="IsContractActiveForSalesFunction.sql" />
+    <NotInBuild Include="IsContractActiveFunction.sql" />
+    <NotInBuild Include="QuarterlySalesReport.sql" />
+    <NotInBuild Include="Reports\ActiveContractReport.sql" />
+    <NotInBuild Include="Reports\ContractAwardsReport.sql" />
+    <NotInBuild Include="Reports\ContractSalesReport.sql" />
+    <NotInBuild Include="Reports\ContractsWithoutRequiredSBAPlanReport.sql" />
+    <NotInBuild Include="Reports\COProfileReport.sql" />
+    <NotInBuild Include="Reports\ExpiringContractsReport.sql" />
+    <NotInBuild Include="Reports\ExpiringSBAPlansReport.sql" />
+    <NotInBuild Include="Reports\FiscalDepositsByContractReport.sql" />
+    <NotInBuild Include="Reports\FiscalDepositsReport.sql" />
+    <NotInBuild Include="Reports\FiscalSalesVsDepositsByQuarterReport.sql" />
+    <NotInBuild Include="Reports\FOIAReport.sql" />
+    <NotInBuild Include="Reports\MedSurgPricelistStatusByContractReport.sql" />
+    <NotInBuild Include="Reports\MissingSalesSummaryReport.sql" />
+    <NotInBuild Include="Reports\MonthlyAwardsByBusinessTypeReport.sql" />
+    <NotInBuild Include="Reports\MyMissingSalesReport.sql" />
+    <NotInBuild Include="Reports\OfferStatisticsReport.sql" />
+    <NotInBuild Include="Reports\QuarterlySalesByBusinessTypeReport.sql" />
+    <NotInBuild Include="Reports\QuarterlySalesReport.sql" />
+    <NotInBuild Include="Reports\SalesByGroupReport.sql" />
+    <NotInBuild Include="Reports\SalesByScheduleReport.sql" />
+    <NotInBuild Include="Reports\SalesSummaryReport.sql" />
+    <NotInBuild Include="Reports\SelectActiveContractsForSBAPlanReport.sql" />
+    <NotInBuild Include="Reports\SelectContractInsuranceForReport.sql" />
+    <NotInBuild Include="Reports\SelectElibraryDailyFallouts.sql" />
+    <NotInBuild Include="Reports\SelectMyOffersForReport.sql" />
+    <NotInBuild Include="Reports\SelectNonPharmaceuticalSchedulesForReport.sql" />
+    <NotInBuild Include="Reports\SelectOfferActionsForReport.sql" />
+    <NotInBuild Include="Reports\SelectOfferAssignmentsForReport.sql" />
+    <NotInBuild Include="Reports\SelectOffersForReport.sql" />
+    <NotInBuild Include="Reports\SelectSBAPlansForReport.sql" />
+    <NotInBuild Include="Reports\SelectSBARelatedContractAttributesReport.sql" />
+    <NotInBuild Include="Reports\SelectSchedulesForReport.sql" />
+    <NotInBuild Include="Reports\SelectSINsForReport.sql" />
+    <NotInBuild Include="Reports\SelectYearsForReport.sql" />
+    <NotInBuild Include="Security\AuthorizeUser.sql" />
+    <NotInBuild Include="Security\DeactivateActivateUser.sql" />
+    <NotInBuild Include="Security\DefineRoleAccessPoints.sql" />
+    <NotInBuild Include="Security\DefineRoleScheduleGroups.sql" />
+    <NotInBuild Include="Security\DefineScheduleGroup.sql" />
+    <NotInBuild Include="Security\DefineUserRoles.sql" />
+    <NotInBuild Include="Security\DeleteRole.sql" />
+    <NotInBuild Include="Security\DeleteRoleAccessPoint.sql" />
+    <NotInBuild Include="Security\DeleteRoleScheduleGroup.sql" />
+    <NotInBuild Include="Security\DeleteScheduleGroup.sql" />
+    <NotInBuild Include="Security\DeleteUser.sql" />
+    <NotInBuild Include="Security\DeleteUserRole.sql" />
+    <NotInBuild Include="Security\GetCOIDFromUserIdFunction2.sql" />
+    <NotInBuild Include="Security\GetLoginNameFromUserId.sql" />
+    <NotInBuild Include="Security\GetLoginNameFromUserIdFunction2.sql" />
+    <NotInBuild Include="Security\GetLoginNameFromUserIdProc2.sql" />
+    <NotInBuild Include="Security\GetUserInfo2.sql" />
+    <NotInBuild Include="Security\InsertRole.sql" />
+    <NotInBuild Include="Security\InsertScheduleGroup.sql" />
+    <NotInBuild Include="Security\InsertUser.sql" />
+    <NotInBuild Include="Security\IsUserInRoleFunction.sql" />
+    <NotInBuild Include="Security\SelectAccessPoints.sql" />
+    <NotInBuild Include="Security\SelectActiveRoles.sql" />
+    <NotInBuild Include="Security\SelectActiveSchedules.sql" />
+    <NotInBuild Include="Security\SelectActiveUsersInRoles.sql" />
+    <NotInBuild Include="Security\SelectContractingOfficers.sql" />
+    <NotInBuild Include="Security\SelectContractingOfficersForDivision2.sql" />
+    <NotInBuild Include="Security\SelectGeneratedGroupSchedules.sql" />
+    <NotInBuild Include="Security\SelectRoleAccessPoints.sql" />
+    <NotInBuild Include="Security\SelectRoles.sql" />
+    <NotInBuild Include="Security\SelectRoleScheduleGroups.sql" />
+    <NotInBuild Include="Security\SelectScheduleGroups.sql" />
+    <NotInBuild Include="Security\SelectUserProfiles.sql" />
+    <NotInBuild Include="Security\SelectUserRoles.sql" />
+    <NotInBuild Include="Security\SelectUserScheduleAccessPoints.sql" />
+    <NotInBuild Include="Security\SelectUsersInRole.sql" />
+    <NotInBuild Include="Security\SelectUsersInRoles.sql" />
+    <NotInBuild Include="Security\SplitFunction.sql" />
+    <NotInBuild Include="Security\UpdateGeneratedGroupSchedules.sql" />
+    <NotInBuild Include="Security\UpdateRole.sql" />
+    <NotInBuild Include="Security\UpdateScheduleGroup.sql" />
+    <NotInBuild Include="Security\UpdateUser.sql" />
+    <NotInBuild Include="SelectContractHeaders.sql" />
+    <NotInBuild Include="SelectDivisions.sql" />
+    <NotInBuild Include="SelectMedSurgItemsForExport.sql" />
+    <NotInBuild Include="SelectPricelistDetailForMedSurgItem.sql" />
+    <NotInBuild Include="SelectSalesCheckComparison.sql" />
+    <NotInBuild Include="SelectSchedulesForDivision.sql" />
+    <NotInBuild Include="SelectSecurityMatrixFromSchedCat.sql" />
+    <NotInBuild Include="SelectSINSForContract.sql" />
+    <NotInBuild Include="SelectStateCodes.sql" />
+    <NotInBuild Include="UpdateOwnerInfoInContract.sql" />
+    <NotInBuild Include="UpdatePricelistDetailForMedSurgBPAItem.sql" />
+    <NotInBuild Include="UpdatePricelistDetailForMedSurgFSSItem.sql" />
+    <NotInBuild Include="UpdatePricelistDetailForMedSurgNonStandardBPAItem.sql" />
+    <NotInBuild Include="UpdatePricelistDetailForMedSurgServiceItem.sql" />
+    <NotInBuild Include="UpdateSBAPlanInfoInContract.sql" />
+    <NotInBuild Include="ValidateNewContractNumber.sql" />
+    <NotInBuild Include="DeleteSINFromContract.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Reports\SalesByVendorReport.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <BuildContributorArgument Include="OutDir=$(OutDir)" />
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Reports\ActiveContractsDataDumpReport.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Reports\GetSINsForContractFunction.function.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="DeleteSINFromContract.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="SelectRebatesForContract.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="InsertContractRebate.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="SelectStandardRebateTerms.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="UpdateContractRebate.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="SelectYearQuartersForDateRange.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GetYearQuarterInfoFromId.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GetRebateClauseForRebate.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Reports\ActiveContractsDataDumpReport.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="DeleteContractRebate.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GetCustomDateForRebate.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Reports\RebateReport.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Reports\RebateDueReport.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="SelectActiveFSSContractsForBPAParent.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GetParentFSSContractInfoForBPA.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GetYearQuarterInfoFromDate.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="InsertMedSurgFSSPriceFromGUI.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="InsertMedSurgServicePriceFromGUI.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="InsertMedSurgBPAPriceFromGUI.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="InsertMedSurgNonStandardBPAPriceFromGUI.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="CheckForDuplicateMedSurgFSSPriceFunction.function.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="CheckForDuplicateMedSurgBPAPriceFunction.function.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Reports\ExportUploadActivityReport.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Reports\SelectStandardizedContractsForReport.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="CheckForOverlappingRebateDateFunction.function.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Reports\ContractsRecentlyRenewedReport.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Reports\SelectSalesYearlyTotalsForContractReport.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Reports\SelectDetailedSalesTotalsForContractReport.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Reports\SelectSalesQuarterlyTotalsForContractReport.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Reports\OfferReassignmentHistoryReport.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Security\SelectOperationalStatusGroups.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Security\InsertOperationalStatusGroup.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Security\DefineRoleOperationalStatusGroups.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Security\DeleteRoleOperationalStatusGroup.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Security\DeleteOperationalStatusGroup.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Security\SelectActiveOperationalStatuses.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Security\SelectGeneratedGroupOperationalStatuses.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Security\SelectRoleOperationalStatusGroups.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Security\SelectUserScheduleOperationalStatusAccessPoints.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Security\UpdateGeneratedGroupOperationalStatuses.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Security\UpdateOperationalStatusGroup.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Security\GetOperationalStatusesForDocumentOwner.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Security\SelectOperationalStatusHierarchy.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Security\SelectContractingOfficers3.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Security\DefineOperationalStatusGroup.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="SelectOfferHeaders.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\SelectContractGeneral.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\SelectSINsForSchedule.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\SelectSINsForContract2.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\InsertSINForContract.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\UpdateSINForContract.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\DeleteSINFromContract2.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Reports\SelectContractsWithoutSBAPlansForReport.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\GetContractInfoDetails.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\UpdateContractGeneralContractDates.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\UpdateContractGeneralContractAttributes.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\InsertGeographicCoverageForContract.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\UpdateGeographicCoverageForContract.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\GetGeographicCoverageForContract.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\UpdateContractVendorSocio.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\UpdateContractVendorAttributes.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\UpdateContractVendorWarrantyInformation.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\UpdateContractVendorReturnedGoodsPolicy.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\UpdateContractDetailsAttributes.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\UpdateContractDetailsDelivery.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\UpdateContractDetailsDiscount.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\SelectSolicitations.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\UpdateContractContact.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\UpdateContractPricelistNotes.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\UpdateContractPricelistVerification.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Security\GetSubordinates.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Security\GetSubordinates2.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\SelectPersonalizedNotification.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="..\..\..\MAIN\CMBrowserApplicationStoredProcedures\Reports\OffersByCreationDateReport.proc.sql">
+      <SubType>Code</SubType>
+      <Link>OffersByCreationDateReport.proc.sql</Link>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Security\UpdateGeneratedReverseOperationalStatusHierarchy.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\UpdateContractRebateHeader.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\SelectSalesVarianceSummaryForContract.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Reports\SalesVarianceFunction.function.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\SelectContractSalesForEdit.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\UpdateContractSalesForEdit.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\SelectYearQuartersForEditContractSales.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\SelectContractChecks.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\InsertContractCheck.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\UpdateContractCheck.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\DeleteContractCheck.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\SelectYearQuartersForEditContractChecks.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\SelectDatesForSBAProjections.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\SelectContractSBAProjections.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\UpdateContractSBAProjection.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\InsertContractSBAProjection.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\DeleteContractSBAProjection.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\SelectSBAPlanTypes.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\SelectSBAPlanDetails.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\InsertSBAPlanDetails.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\UpdateSBAPlanDetails.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\DeleteSBAPlanDetails.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\SelectActiveSBAPlans.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\UpdateContractSBAHeader.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\SelectSBAAssociatedContracts.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Reports\OfferStatisticsByRoleReport.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Reports\OffersByRoleReport.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\GetOfferInfoDetails.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\UpdateOfferPrimaryContact.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\UpdateOfferVendorBusinessAddress.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\UpdateOfferComment.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\UpdateOfferGeneralOfferAttributes.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\UpdateOfferGeneralOfferDates.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\UpdateOfferGeneralActionStatus.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\UpdateOfferGeneralAuditInformation.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\SelectOfferActionTypes.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GetListOfSinsForContractFunction.function.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\CreateOffer.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\UpdateContractGeneralContractAssignment.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\GetContractOwnerInfo.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Reports\RecentSBAActivityReport.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\UpdateContractComment.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\SelectUserRecentDocuments.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\InsertUserRecentDocument.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Reports\SelectSINItemCountsPerContract.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Reports\SelectSalesVarianceBySINReport.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\UpdateContractVendorInsurancePolicy.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\GetOfferOwnerInfo.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\SelectAssociatedBPAContracts.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Reports\SINItemCountReport.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\SelectParentContractsForSchedule.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\GetContractAndVendorInfo.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\CreateContract2.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Reports\AllContractReport.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Reports\SelectContractsWithoutSBAPlansForReport.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Reports\IFFCRFPercentageReport.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="SelectPricelistDetailNewFSSForBPA.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+</Project>
