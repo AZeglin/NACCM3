@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <PostUpgradeAddToSCC>;C:\NACCMBrowser\DEVELOPMENT\DEV3\DrugItemStoredProcedures\DrugItemStoredProcedures.dbproj;C:\NACCMBrowser\DEVELOPMENT\DEV3\DrugItemStoredProcedures\Connections.txt;C:\NACCMBrowser\DEVELOPMENT\DEV3\DrugItemStoredProcedures\Scripts\Post-Deployment\Script.PostDeployment.sql;C:\NACCMBrowser\DEVELOPMENT\DEV3\DrugItemStoredProcedures\Scripts\Pre-Deployment\Script.PreDeployment.sql</PostUpgradeAddToSCC>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProjectName>SAK</SccProjectName>
+    <PreviousProjectVersion>4.0</PreviousProjectVersion>
+    <UpgradedFromDBP>True</UpgradedFromDBP>
+    <Name>dbpProjectName</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.0</ProjectVersion>
+    <ProjectGuid>{33684f9b-ac6b-47c8-8909-26fb7fa85443}</ProjectGuid>
+    <DSP>Microsoft.Data.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ShowWizard>False</ShowWizard>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchema</DefaultFileStructure>
+    <DeployToDatabaseAddToServerExplorer>True</DeployToDatabaseAddToServerExplorer>
+    <DeployToScript>True</DeployToScript>
+    <CatalogPropertiesFile>Properties\Database.sqlsettings</CatalogPropertiesFile>
+    <LoadSqlClrTypes>True</LoadSqlClrTypes>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>.\sql\release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString>
+    </TargetConnectionString>
+    <TargetDatabase>
+    </TargetDatabase>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings>
+    </SuppressWarnings>
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>False</DeployToDatabase>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>.\sql\debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString>
+    </TargetConnectionString>
+    <TargetDatabase>
+    </TargetDatabase>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings>
+    </SuppressWarnings>
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>False</DeployToDatabase>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'DEVAPP3WithDEVDB' ">
+    <OutputPath>.\sql\DEVAPP3WithDEVDB\</OutputPath>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'LocalWithTESTDBA' ">
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString />
+    <TargetDatabase />
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings />
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>False</DeployToDatabase>
+    <OutputPath>.\sql\LocalWithTESTDBA\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'DEVAPP3WithTESTDBA' ">
+    <OutputPath>.\sql\DEVAPP3WithTESTDBA\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'TESTAPPWithDEVDB' ">
+    <OutputPath>.\sql\TESTAPPWithDEVDB\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'TESTAPPWithTESTDBA' ">
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString />
+    <TargetDatabase />
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings />
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>False</DeployToDatabase>
+    <OutputPath>.\sql\TESTAPPWithTESTDBA\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'LocalWithDEVDB2' ">
+    <OutputPath>.\sql\LocalWithDEVDB2\</OutputPath>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'PRDAPP1WithTESTDBA' ">
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString />
+    <TargetDatabase />
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings />
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>False</DeployToDatabase>
+    <OutputPath>.\sql\PRDAPP1WithTESTDBA\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'PRDAPP1WITHPRDDB1' ">
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString />
+    <TargetDatabase />
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings />
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>False</DeployToDatabase>
+    <OutputPath>.\sql\PRDAPP1WITHPRDDB1\</OutputPath>
+  </PropertyGroup>
+  <!--Import the settings-->
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\TeamData\Microsoft.Data.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Pre-Deployment" />
+    <Folder Include="Scripts\Post-Deployment" />
+    <Folder Include="Data Generation Plans" />
+    <Folder Include="Schema Comparisons" />
+  </ItemGroup>
+  <ItemGroup>
+    <PropertiesFile Include="Properties\Database.sqlsettings">
+    </PropertiesFile>
+    <PropertiesFile Include="Properties\Database.sqldeployment">
+    </PropertiesFile>
+    <Build Include="Properties\Database.sqlpermissions">
+      <ModelBuilderType>Permissions</ModelBuilderType>
+    </Build>
+    <PreDeploy Include="Scripts\Pre-Deployment\Script.PreDeployment.sql">
+      <SubType>Code</SubType>
+    </PreDeploy>
+    <PostDeploy Include="Scripts\Post-Deployment\Script.PostDeployment.sql">
+      <SubType>Code</SubType>
+    </PostDeploy>
+    <PropertiesFile Include="Properties\Database.sqlcmdvars">
+      <SubType>PropertiesFile</SubType>
+    </PropertiesFile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Schema Objects" />
+    <Folder Include="Schema Objects\Schemas" />
+    <Folder Include="Schema Objects\Schemas\dbo" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Defaults" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Functions" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Rules" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Data Types" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Types CLR" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Table Types" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\XML Schema Collections" />
+    <Folder Include="Schema Objects\Schemas\dbo\Service Broker" />
+    <Folder Include="Schema Objects\Schemas\dbo\Service Broker\Queues" />
+    <Folder Include="Schema Objects\Schemas\dbo\Synonyms" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Constraints" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Indexes" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Keys" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Triggers" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Statistics" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\Indexes" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\Triggers" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\Statistics" />
+    <Folder Include="Schema Objects\Database Level Objects" />
+    <Folder Include="Schema Objects\Database Level Objects\Assemblies" />
+    <Folder Include="Schema Objects\Database Level Objects\Database Triggers" />
+    <Folder Include="Schema Objects\Database Level Objects\Security" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Schemas" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Users" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Certificates" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Asymmetric Keys" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Master Keys" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Signatures" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Symmetric Keys" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Database Encryption Keys" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Database Audit Specification" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\Application Roles" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\Database Roles" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Broker Priorities" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Contracts" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Event Notifications" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Message Types" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Remote Service Binding" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Routes" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Services" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Full Text Stoplists" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Filegroups" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Files" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Full Text Catalogs" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Functions" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Schemes" />
+    <Folder Include="Conversion" />
+    <Folder Include="Copy Contract" />
+    <Folder Include="Export" />
+    <Folder Include="Export\Dev" />
+    <Folder Include="Export\NACTRN" />
+    <Folder Include="Export\Prod" />
+    <Folder Include="Export\Test" />
+    <Folder Include="FCPStaging" />
+    <Folder Include="GUI" />
+    <Folder Include="Other" />
+    <Folder Include="Reports" />
+    <Folder Include="Shared" />
+    <Folder Include="Upload" />
+    <Folder Include="Properties" />
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Connections.txt" />
+    <NotInBuild Include="Conversion\CheckIfNDCChangedProc.sql" />
+    <NotInBuild Include="Conversion\CheckIfNDCChangedProc1.sql" />
+    <NotInBuild Include="Conversion\ExtractDataFromPBM.sql" />
+    <NotInBuild Include="Conversion\FixFCPItemsData.sql" />
+    <NotInBuild Include="Conversion\FixFSSData.sql" />
+    <NotInBuild Include="Conversion\FixFSSItemsData.sql" />
+    <NotInBuild Include="Conversion\FixFSSRItemsData.sql" />
+    <NotInBuild Include="Conversion\ImportProcess.sql" />
+    <NotInBuild Include="Conversion\IntialPriceIdAdjustmentForDrugItemPrice.sql" />
+    <NotInBuild Include="Conversion\IntialPriceIdAdjustmentForDrugItemPriceHistory.sql" />
+    <NotInBuild Include="Conversion\LogDuplicateItems.sql" />
+    <NotInBuild Include="Conversion\NCFContractsValidation.sql" />
+    <NotInBuild Include="Conversion\NCFFSSContractsValidation.sql" />
+    <NotInBuild Include="Conversion\PriceAdjustmentBeforeUpdate.sql" />
+    <NotInBuild Include="Conversion\ProcessContractNumberChange.sql" />
+    <NotInBuild Include="Conversion\ProcessContractsData.sql" />
+    <NotInBuild Include="Conversion\ProcessDataForALLContracts.sql" />
+    <NotInBuild Include="Conversion\ProcessDuplicateNDCItems.sql" />
+    <NotInBuild Include="Conversion\ProcessFCPItemsData.sql" />
+    <NotInBuild Include="Conversion\ProcessFCPValues.sql" />
+    <NotInBuild Include="Conversion\ProcessFSSItemsData.sql" />
+    <NotInBuild Include="Conversion\ProcessFSSRItemsData.sql" />
+    <NotInBuild Include="Conversion\ProcessHistoryForDiscontinuedItemsandPrices.sql" />
+    <NotInBuild Include="Conversion\ProcessHistoryForExpiredContractsItemsPackageandPrices.sql" />
+    <NotInBuild Include="Conversion\ProcessHistoryItemPrices.sql" />
+    <NotInBuild Include="Conversion\ProcessItemsAndPackageData.sql" />
+    <NotInBuild Include="Conversion\ProcessMissingContractsForScheduleNumber1.sql" />
+    <NotInBuild Include="Conversion\ProcessNCFContractsData.sql" />
+    <NotInBuild Include="Conversion\ProcessNCFFSSContractsData.sql" />
+    <NotInBuild Include="Conversion\ProcessNCFItemPriceData.sql" />
+    <NotInBuild Include="Conversion\ProcessNCFItemsData.sql" />
+    <NotInBuild Include="Conversion\ProcessNDCData.sql" />
+    <NotInBuild Include="Conversion\ProcessNullsForHistoricalNValue.sql" />
+    <NotInBuild Include="Conversion\ProcessPriceHistoryId.sql" />
+    <NotInBuild Include="Conversion\ProcessPriceId.sql" />
+    <NotInBuild Include="Conversion\ProcessPriceStopDateForBig4.sql" />
+    <NotInBuild Include="Conversion\ProcessPriceStopDateForFSS.sql" />
+    <NotInBuild Include="Conversion\ProcessPriceStopDateForFSSR.sql" />
+    <NotInBuild Include="Conversion\UpdateDatesForPBMTables.sql" />
+    <NotInBuild Include="Copy Contract\CopyBPAItemsForContract.sql" />
+    <NotInBuild Include="Copy Contract\CopyContract.sql" />
+    <NotInBuild Include="Copy Contract\CopyDrugItemContract.sql" />
+    <NotInBuild Include="Copy Contract\CopyMedSurgItemsForContract.sql" />
+    <NotInBuild Include="Copy Contract\CopySINSForContract.sql" />
+    <NotInBuild Include="Copy Contract\CopyStateCoverageForContract.sql" />
+    <NotInBuild Include="Export\Dev\CreateNACCMPriceListExportSpreadsheet.sql" />
+    <NotInBuild Include="Export\ExtractDataForContract.sql" />
+    <NotInBuild Include="Export\PriceListExportForBig4Data.sql" />
+    <NotInBuild Include="Export\PriceListExportForBig4DataWithNoDates.sql" />
+    <NotInBuild Include="Export\PriceListExportForFSSData.sql" />
+    <NotInBuild Include="Export\PriceListExportForFSSDataWithNodates.sql" />
+    <NotInBuild Include="Export\PriceListExportForFSSRData.sql" />
+    <NotInBuild Include="Export\PriceListExportForFSSRDataWithNodates.sql" />
+    <NotInBuild Include="Export\Prod\CreateNACCMPriceListExportSpreadsheet.sql" />
+    <NotInBuild Include="Export\Test\CreateNACCMPriceListExportSpreadsheet.sql" />
+    <NotInBuild Include="FCPStaging\ProcessFCPStagingValues.sql" />
+    <NotInBuild Include="FCPStaging\ProcessFCPValuesevery15mins.sql" />
+    <NotInBuild Include="GUI\ChangeNDC.sql" />
+    <NotInBuild Include="GUI\CopyItem.sql" />
+    <NotInBuild Include="GUI\CopyItemPriceIntoPriceHistory.sql" />
+    <NotInBuild Include="GUI\CreateDrugItemContract.sql" />
+    <NotInBuild Include="GUI\DeleteChangeRequest.sql" />
+    <NotInBuild Include="GUI\DeleteFSSDrugItemSubItem.sql" />
+    <NotInBuild Include="GUI\DeleteFSSItemAndPrices.sql" />
+    <NotInBuild Include="GUI\DeleteFSSPriceForItemPriceId.sql" />
+    <NotInBuild Include="GUI\DeleteFSSPricesForItemId.sql" />
+    <NotInBuild Include="GUI\DeleteTieredPriceForDrugItemPrice.sql" />
+    <NotInBuild Include="GUI\DiscontinueFSSDrugItemFromContract.sql" />
+    <NotInBuild Include="GUI\GetAllActiveNDCForContract.sql" />
+    <NotInBuild Include="GUI\GetCoveredFCPCountForDrugContract.sql" />
+    <NotInBuild Include="GUI\GetDivisionId.sql" />
+    <NotInBuild Include="GUI\GetFCPValueForDrugItem.sql" />
+    <NotInBuild Include="GUI\GetFSSDrugItemDetails.sql" />
+    <NotInBuild Include="GUI\GetFSSDrugItemPriceDetails.sql" />
+    <NotInBuild Include="GUI\GetFSSPriceEndDateForItemFunction.sql" />
+    <NotInBuild Include="GUI\GetFSSPriceForItemFunction.sql" />
+    <NotInBuild Include="GUI\GetFSSPriceStartDateForItemFunction.sql" />
+    <NotInBuild Include="GUI\GetHasBPAForItemFunction.sql" />
+    <NotInBuild Include="GUI\GetItemCountForDrugContract.sql" />
+    <NotInBuild Include="GUI\GetItemDualPriceStatusForDrugItemId.sql" />
+    <NotInBuild Include="GUI\GetPackageInfoForItemCopy.sql" />
+    <NotInBuild Include="GUI\GetParentDrugItemDescription.sql" />
+    <NotInBuild Include="GUI\GetParentDrugItemDetails.sql" />
+    <NotInBuild Include="GUI\GetParentDrugItems.sql" />
+    <NotInBuild Include="GUI\GetSubItemIdentifierForHistoricalPriceFunction.sql" />
+    <NotInBuild Include="GUI\InsertChangeRequest.sql" />
+    <NotInBuild Include="GUI\InsertDrugItemUserActivity.sql" />
+    <NotInBuild Include="GUI\InsertFSSDrugItem.sql" />
+    <NotInBuild Include="GUI\InsertFSSDrugItemPrice.sql" />
+    <NotInBuild Include="GUI\InsertFSSDrugItemSubItem.sql" />
+    <NotInBuild Include="GUI\InsertTieredPriceForDrugItemPrice.sql" />
+    <NotInBuild Include="GUI\NormalizeContractNumberForDrugItemContractsFunction.sql" />
+    <NotInBuild Include="GUI\SelectChangeRequests.sql" />
+    <NotInBuild Include="GUI\SelectDrugItemPricesForFSSItem.sql" />
+    <NotInBuild Include="GUI\SelectDrugItemsForFSSContract.sql" />
+    <NotInBuild Include="GUI\SelectFSSDrugItemSubItems.sql" />
+    <NotInBuild Include="GUI\SelectFSSDrugItemSubItemsForPrice.sql" />
+    <NotInBuild Include="GUI\SelectSalePackagingMeasureUnits.sql" />
+    <NotInBuild Include="GUI\SelectTieredPricesForDrugItemPrice.sql" />
+    <NotInBuild Include="GUI\UpdateChangeRequest.sql" />
+    <NotInBuild Include="GUI\UpdateChangeRequestStatus.sql" />
+    <NotInBuild Include="GUI\UpdateFCPValuesForYear.sql" />
+    <NotInBuild Include="GUI\UpdateFSSDrugItem.sql" />
+    <NotInBuild Include="GUI\UpdateFSSDrugItemDetails.sql" />
+    <NotInBuild Include="GUI\UpdateFSSDrugItemDetailsForCopy.sql" />
+    <NotInBuild Include="GUI\UpdateFSSDrugItemPrice.sql" />
+    <NotInBuild Include="GUI\UpdateFSSDrugItemPriceDetails.sql" />
+    <NotInBuild Include="GUI\UpdateFSSDrugItemSubItem.sql" />
+    <NotInBuild Include="GUI\UpdateParentDrugItemContract.sql" />
+    <NotInBuild Include="GUI\UpdateTieredPriceForDrugItemPrice.sql" />
+    <NotInBuild Include="GUI\ValidatePriceAgainstOtherPrices.sql" />
+    <NotInBuild Include="GUI\ValidatePriceAllowUserOverrideCheckFunction.sql" />
+    <NotInBuild Include="GUI\ValidatePriceCheckOneOrganizationFunction.sql" />
+    <NotInBuild Include="Other\dbo.TestScenario1.StoredProcedure.sql" />
+    <NotInBuild Include="Other\dbo.TestScenario2.StoredProcedure.sql" />
+    <NotInBuild Include="Other\dbo.TestScenario3.StoredProcedure.sql" />
+    <NotInBuild Include="Other\dbo.TestScenario4.StoredProcedure.sql" />
+    <NotInBuild Include="Other\GetDatesFromScenarioNumbers.sql" />
+    <NotInBuild Include="Other\GetNextDateScenario.sql" />
+    <NotInBuild Include="Other\InsertRawPriceForTest.sql" />
+    <NotInBuild Include="Other\TestScenario1-2.StoredProcedure.sql" />
+    <NotInBuild Include="Other\TestScenario2009-1.sql" />
+    <NotInBuild Include="Reports\BackwardTraverseChangeTableForNDCReport.sql" />
+    <NotInBuild Include="Reports\DrugItemHasPricingErrorsFunction.sql" />
+    <NotInBuild Include="Reports\ExpiringDrugItemPricesReport.sql" />
+    <NotInBuild Include="Reports\ForwardTraverseChangeTableForNDCReport.sql" />
+    <NotInBuild Include="Reports\GetDrugItemContractInfo.sql" />
+    <NotInBuild Include="Reports\GetDrugItemContractInfoLocal.sql" />
+    <NotInBuild Include="Reports\GetItemDualPriceStatusForDrugItemSubItemIdFunction.sql" />
+    <NotInBuild Include="Reports\GetPriceApplicabilityStringForReportFunction.sql" />
+    <NotInBuild Include="Reports\SelectActiveItemsForNDCReport.sql" />
+    <NotInBuild Include="Reports\SelectContractItemPriceErrorsReport.sql" />
+    <NotInBuild Include="Reports\SelectErroredPricesForItemReport.sql" />
+    <NotInBuild Include="Reports\SelectFCPStatusForAllContractsReport.sql" />
+    <NotInBuild Include="Reports\SelectHistoryForNDCReport.sql" />
+    <NotInBuild Include="Reports\SelectItemsAndPricesForContractReport.sql" />
+    <NotInBuild Include="Reports\SelectPBMNFAMPByContractForReport.sql" />
+    <NotInBuild Include="Reports\SelectPricesForItemReport.sql" />
+    <NotInBuild Include="Reports\SelectPriceStatusForAllContractsReport.sql" />
+    <NotInBuild Include="Reports\SelectUploadStatusForAllCoveredContractsReport.sql" />
+    <NotInBuild Include="Shared\AdjustPriceHistorySequence.sql" />
+    <NotInBuild Include="Shared\AdjustPriceSequence.sql" />
+    <NotInBuild Include="Shared\GetLoginNameFromUserIdLocalFunction.sql" />
+    <NotInBuild Include="Shared\GetLoginNameFromUserIdLocalProc.sql" />
+    <NotInBuild Include="Shared\InsertFSSDrugItemPriceHistory.sql" />
+    <NotInBuild Include="Shared\IsContractActiveFunction.sql" />
+    <NotInBuild Include="Shared\UpdateDrugItemNDC.sql" />
+    <NotInBuild Include="Upload\GetModificationStatusHistory.sql" />
+    <NotInBuild Include="Upload\UpdateDrugItemPriceModification.sql" />
+    <NotInBuild Include="Shared\GetVAIFF.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Other\CreateDrugItemPriceSpreadsheetModification.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\GetTPRAlwaysHasBasePrice.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\GetTPRAlwaysHasBasePriceFunction.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <BuildContributorArgument Include="OutDir=$(OutDir)" />
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\SelectItemDiscontinuationReasons.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\RestoreDiscontinuedItem.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\SelectDistributorsForDrugItem.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\InsertDistributorForDrugItem.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\UpdateDistributorForDrugItem.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="GUI\DeleteDrugItemDistributor.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="GUI\SelectDistributorNamesForDrugItem.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Reports\SelectItemsWithSpecialtyDistributorReport.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Reports\DrugItemTPRWithoutBasePriceReport.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Copy Contract\CopyStateCoverageForContract2.proc.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
+  </ItemGroup>
+</Project>
