@@ -1,4 +1,5 @@
 using System;
+using System.Net;
 using System.Collections;
 using System.Configuration;
 using System.Data;
@@ -335,9 +336,9 @@ namespace VA.NAC.CM.ApplicationStartup
                 else
                 {
                     string closeFunctionCallStringForDateType = String.Format( "CloseWindow('{0}', 'True');", Enum.GetName( typeof( DateTypes ), DateType ) );
-                    FormOkCloseButton.Attributes.Add( "onclick", closeFunctionCallStringForDateType );
+                    FormOkCloseButton.Attributes.Add( "onclick", WebUtility.HtmlEncode( closeFunctionCallStringForDateType ) );
                     string closeFunctionCallStringForCancel = String.Format( "CloseWindow('{0}', 'False');", Enum.GetName( typeof( DateTypes ), DateType ) ); 
-                    FormCancelButton.Attributes.Add( "onclick", closeFunctionCallStringForCancel );
+                    FormCancelButton.Attributes.Add( "onclick", WebUtility.HtmlEncode( closeFunctionCallStringForCancel ) );
                 }
             }
 
