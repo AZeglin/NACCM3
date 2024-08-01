@@ -1,4 +1,5 @@
 using System;
+using System.Net;
 using System.Collections;
 using System.Collections.Specialized;
 using System.Configuration;
@@ -1117,8 +1118,8 @@ namespace VA.NAC.CM.DrugItems
 
         private void RefreshMainHeader( bool bWithRefresh )
         {
-            MainHeaderTitleLabel2.Text = string.Format( "For Contract {0}", _startupParameters.ContractNumber );
-            MainHeaderTitleLabel3.Text = string.Format( "{0}", _startupParameters.VendorName );
+            MainHeaderTitleLabel2.Text = string.Format( "For Contract {0}", WebUtility.HtmlEncode(_startupParameters.ContractNumber) );
+            MainHeaderTitleLabel3.Text = string.Format( "{0}", WebUtility.HtmlEncode( _startupParameters.VendorName ));
 
             MainHeaderItemCount.Text = string.Format( "{0} Total Items", GetCurrentItemCount( bWithRefresh ));
         }
