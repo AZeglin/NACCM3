@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Collections;
@@ -133,7 +134,7 @@ namespace VA.NAC.CM.DrugItems
 
         public void SetCovered( string coveredYN )
         {
-            CoveredLabel.Text = coveredYN;
+            CoveredLabel.Text = WebUtility.HtmlEncode( coveredYN );
 
             if( coveredYN.CompareTo( "Covered" ) == 0 )
             {
@@ -207,7 +208,7 @@ namespace VA.NAC.CM.DrugItems
             }
             set
             {
-                GenericNameLabelData.Text = value;
+                GenericNameLabelData.Text = WebUtility.HtmlEncode( value );
             }
         }
 
@@ -219,7 +220,7 @@ namespace VA.NAC.CM.DrugItems
             }
             set
             {
-                TradeNameLabelData.Text = value;
+                TradeNameLabelData.Text = WebUtility.HtmlEncode( value );
             }
         }
 
