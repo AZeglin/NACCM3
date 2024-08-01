@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props" Condition="Exists('packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -232,19 +232,16 @@
     <Content Include="Images\NACCMAmericanFlag.gif" />
     <Content Include="Images\NACCMAmericanFlagTransparent.gif" />
     <Content Include="JQuery\spin.js" />
-    <Content Include="NACCMStartupErrorPage.aspx" />
-    <None Include="packages\AjaxControlToolkit.20.1.0\.signature.p7s" />
+    <Content Include="NACCMStartupErrorPage.aspx" />   
     <None Include="packages\AjaxControlToolkit.20.1.0\AjaxControlToolkit.20.1.0.nupkg" />
     <None Include="packages\AjaxControlToolkit.20.1.0\Content\Web.config.transform" />
-    <None Include="packages\AjaxControlToolkit.20.1.0\readme.txt" />
-    <Content Include="packages\jQuery.3.7.1\.signature.p7s" />
+    <None Include="packages\AjaxControlToolkit.20.1.0\readme.txt" />    
     <Content Include="packages\jQuery.3.7.1\Content\Scripts\jquery-3.7.1.min.map" />
     <Content Include="packages\jQuery.3.7.1\Content\Scripts\jquery-3.7.1.slim.min.map" />
     <Content Include="packages\jQuery.3.7.1\jQuery.3.7.1.nupkg" />
     <Content Include="packages\jQuery.3.7.1\Tools\common.ps1" />
     <Content Include="packages\jQuery.3.7.1\Tools\install.ps1" />
-    <Content Include="packages\jQuery.3.7.1\Tools\uninstall.ps1" />
-    <Content Include="packages\jQuery.Validation.1.19.5\.signature.p7s" />
+    <Content Include="packages\jQuery.3.7.1\Tools\uninstall.ps1" />  
     <Content Include="packages\jQuery.Validation.1.19.5\jQuery.Validation.1.19.5.nupkg" />
     <None Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0.nupkg" />
     <None Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\Microsoft.AspNet.ScriptManager.WebForms.5.0.0.nupkg" />
@@ -335,19 +332,15 @@
     <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\zh-CHT\Microsoft.ReportViewer.WebForms.resources.dll" />
     <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll" />
     <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\license\ThirdPartyNotices_ReportViewer.txt" />
-    <Content Include="packages\Microsoft.jQuery.Unobtrusive.Validation.4.0.0\.signature.p7s" />
     <Content Include="packages\Microsoft.jQuery.Unobtrusive.Validation.4.0.0\Microsoft.jQuery.Unobtrusive.Validation.4.0.0.nupkg" />
-    <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\.signature.p7s" />
     <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props" />
     <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\license.md" />
     <Content Include="packages\Microsoft.SqlServer.Types.160.1000.6\Microsoft.SqlServer.Types.160.1000.6.nupkg" />
-    <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\.signature.p7s" />
     <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\content\web.config.install.xdt" />
     <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\license\License_ReportViewer.rtf" />
     <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0.nupkg" />
     <Content Include="packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\tools\install.ps1" />
     <None Include="packages\repositories.config" />
-    <None Include="packages\Microsoft.jQuery.Unobtrusive.Ajax.3.2.6\.signature.p7s" />
     <None Include="packages\Microsoft.jQuery.Unobtrusive.Ajax.3.2.6\Microsoft.jQuery.Unobtrusive.Ajax.3.2.6.nupkg" />
     <None Include="Properties\PublishProfiles\PRDAPP3ONPRDDB3.pubxml" />
     <None Include="Properties\PublishProfiles\PRDAPP3ONTESTDB3.pubxml" />
