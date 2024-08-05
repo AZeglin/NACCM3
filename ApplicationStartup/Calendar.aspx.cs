@@ -280,58 +280,58 @@ namespace VA.NAC.CM.ApplicationStartup
                 if( DateType == DateTypes.CAward || DateType == DateTypes.CCompletion || DateType == DateTypes.CEffective || DateType == DateTypes.CExpiration )
                 {
                     string closeFunctionCallStringForDateType = String.Format( "CloseWindowFromContractInfo('{0}', 'True');", Enum.GetName( typeof( DateTypes ), DateType ) );
-                    FormOkCloseButton.Attributes.Add( "onclick", closeFunctionCallStringForDateType );
+                    FormOkCloseButton.Attributes.Add( "onclick", WebUtility.HtmlEncode( closeFunctionCallStringForDateType ));
                     string closeFunctionCallStringForCancel = String.Format( "CloseWindowFromContractInfo('{0}', 'False');", Enum.GetName( typeof( DateTypes ), DateType ) );
-                    FormCancelButton.Attributes.Add( "onclick", closeFunctionCallStringForCancel );
+                    FormCancelButton.Attributes.Add( "onclick", WebUtility.HtmlEncode( closeFunctionCallStringForCancel ));
                 }
                 else if( DateType == DateTypes.OAssignment || DateType == DateTypes.OReassignment || DateType == DateTypes.OEstimatedCompletion || DateType == DateTypes.OAction || DateType == DateTypes.OAudit || DateType == DateTypes.OReturn || DateType == DateTypes.OReceived )
                 {
                     string closeFunctionCallStringForDateType = String.Format( "CloseWindowFromOfferRecord('{0}', 'True');", Enum.GetName( typeof( DateTypes ), DateType ) );
-                    FormOkCloseButton.Attributes.Add( "onclick", closeFunctionCallStringForDateType );
+                    FormOkCloseButton.Attributes.Add( "onclick", WebUtility.HtmlEncode( closeFunctionCallStringForDateType ));
                     string closeFunctionCallStringForCancel = String.Format( "CloseWindowFromOfferRecord('{0}', 'False');", Enum.GetName( typeof( DateTypes ), DateType ) );
-                    FormCancelButton.Attributes.Add( "onclick", closeFunctionCallStringForCancel );
+                    FormCancelButton.Attributes.Add( "onclick", WebUtility.HtmlEncode( closeFunctionCallStringForCancel ));
                 }
                 else if( DateType == DateTypes.C2Award || DateType == DateTypes.C2Completion || DateType == DateTypes.C2Effective || DateType == DateTypes.C2Expiration )
                 {
                     string closeFunctionCallStringForDateType = String.Format( "CloseWindowFromContractInfo2('{0}', 'True');", Enum.GetName( typeof( DateTypes ), DateType ) );
-                    FormOkCloseButton.Attributes.Add( "onclick", closeFunctionCallStringForDateType );
+                    FormOkCloseButton.Attributes.Add( "onclick", WebUtility.HtmlEncode( closeFunctionCallStringForDateType ));
                     string closeFunctionCallStringForCancel = String.Format( "CloseWindowFromContractInfo2('{0}', 'False');", Enum.GetName( typeof( DateTypes ), DateType ) );
-                    FormCancelButton.Attributes.Add( "onclick", closeFunctionCallStringForCancel );
+                    FormCancelButton.Attributes.Add( "onclick", WebUtility.HtmlEncode( closeFunctionCallStringForCancel ));
                 }
                 else if( DateType == DateTypes.X2Award || DateType == DateTypes.X2Completion || DateType == DateTypes.X2Effective || DateType == DateTypes.X2Expiration )
                 {
                     string closeFunctionCallStringForDateType = String.Format( "CloseWindowFromContractCreation2('{0}', 'True');", Enum.GetName( typeof( DateTypes ), DateType ) );
-                    FormOkCloseButton.Attributes.Add( "onclick", closeFunctionCallStringForDateType );
+                    FormOkCloseButton.Attributes.Add( "onclick", WebUtility.HtmlEncode( closeFunctionCallStringForDateType ));
                     string closeFunctionCallStringForCancel = String.Format( "CloseWindowFromContractCreation2('{0}', 'False');", Enum.GetName( typeof( DateTypes ), DateType ) );
-                    FormCancelButton.Attributes.Add( "onclick", closeFunctionCallStringForCancel );
+                    FormCancelButton.Attributes.Add( "onclick", WebUtility.HtmlEncode( closeFunctionCallStringForCancel ));
                 }
                 else if( DateType == DateTypes.O2Assignment || DateType == DateTypes.O2Reassignment || DateType == DateTypes.O2EstimatedCompletion || DateType == DateTypes.O2Action || DateType == DateTypes.O2Audit || DateType == DateTypes.O2Return || DateType == DateTypes.O2Received )
                 {
                     string closeFunctionCallStringForDateType = String.Format( "CloseWindowFromOfferRecord2('{0}', 'True');", Enum.GetName( typeof( DateTypes ), DateType ) );
-                    FormOkCloseButton.Attributes.Add( "onclick", closeFunctionCallStringForDateType );
+                    FormOkCloseButton.Attributes.Add( "onclick", WebUtility.HtmlEncode( closeFunctionCallStringForDateType ));
                     string closeFunctionCallStringForCancel = String.Format( "CloseWindowFromOfferRecord2('{0}', 'False');", Enum.GetName( typeof( DateTypes ), DateType ) );
-                    FormCancelButton.Attributes.Add( "onclick", closeFunctionCallStringForCancel );
+                    FormCancelButton.Attributes.Add( "onclick", WebUtility.HtmlEncode( closeFunctionCallStringForCancel ));
                 }
                 else if( DateType == DateTypes.C2PricelistModificationEffective )
                 {
                     string closeFunctionCallStringForDateType = String.Format( "CloseWindowFromItemInfo2('{0}', 'True');", Enum.GetName( typeof( DateTypes ), DateType ) );
-                    FormOkCloseButton.Attributes.Add( "onclick", closeFunctionCallStringForDateType );
+                    FormOkCloseButton.Attributes.Add( "onclick", WebUtility.HtmlEncode( closeFunctionCallStringForDateType ));
                     string closeFunctionCallStringForCancel = String.Format( "CloseWindowFromItemInfo2('{0}', 'False');", Enum.GetName( typeof( DateTypes ), DateType ) );
-                    FormCancelButton.Attributes.Add( "onclick", closeFunctionCallStringForCancel );
+                    FormCancelButton.Attributes.Add( "onclick", WebUtility.HtmlEncode( closeFunctionCallStringForCancel ));
                 }
                 else if( DateType == DateTypes.InsurancePolicyEffective || DateType == DateTypes.InsurancePolicyExpiration )
                 {
                     string closeFunctionCallStringForDateType = String.Format( "CloseWindowFromContractVendor('{0}', 'True');", Enum.GetName( typeof( DateTypes ), DateType ) );
-                    FormOkCloseButton.Attributes.Add( "onclick", closeFunctionCallStringForDateType );
+                    FormOkCloseButton.Attributes.Add( "onclick", WebUtility.HtmlEncode( closeFunctionCallStringForDateType ));
                     string closeFunctionCallStringForCancel = String.Format( "CloseWindowFromContractVendor('{0}', 'False');", Enum.GetName( typeof( DateTypes ), DateType ) );
-                    FormCancelButton.Attributes.Add( "onclick", closeFunctionCallStringForCancel );
+                    FormCancelButton.Attributes.Add( "onclick", WebUtility.HtmlEncode( closeFunctionCallStringForCancel ));
                 }
                 else if( DateType == DateTypes.ProjectionStart || DateType == DateTypes.ProjectionEnd )
                 {
                     string closeFunctionCallStringForDateType = String.Format( "CloseWindowFromSBAProjection('{0}', '{1}', 'True');", Enum.GetName( typeof( DateTypes ), DateType ), ReceivingControlClientId );
-                    FormOkCloseButton.Attributes.Add( "onclick", closeFunctionCallStringForDateType );
+                    FormOkCloseButton.Attributes.Add( "onclick", WebUtility.HtmlEncode( closeFunctionCallStringForDateType ) );
                     string closeFunctionCallStringForCancel = String.Format( "CloseWindowFromSBAProjection('{0}', '{1}', 'False');", Enum.GetName( typeof( DateTypes ), DateType ), ReceivingControlClientId );
-                    FormCancelButton.Attributes.Add( "onclick", closeFunctionCallStringForCancel );
+                    FormCancelButton.Attributes.Add( "onclick", WebUtility.HtmlEncode( closeFunctionCallStringForCancel ) );
                 }
                 else
                 {
