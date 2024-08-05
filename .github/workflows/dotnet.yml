@@ -33,7 +33,7 @@ jobs:
          & "C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools\gacutil.exe" /i ${{ github.workspace }}\ApplicationStartup\obj\ServiceLogging.dll 
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
+        uses: github/codeql-action/init@v3
         with:
           languages: 'csharp'
 
@@ -41,7 +41,7 @@ jobs:
         run: msbuild ${{ github.workspace }}\NACCM\naccm.sln /nologo /nr:false /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="PRDAPP3WithPRDDB3" /p:PublishUrl="../_build"
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v1.0.0
+        uses: actions/upload-artifact@v4
         with:
            name: Build Output
            path: "./_build"
@@ -50,5 +50,5 @@ jobs:
         run: mkdir _codeql-databases
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
+        uses: github/codeql-action/analyze@v3
       
