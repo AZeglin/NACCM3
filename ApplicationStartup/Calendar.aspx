@@ -113,7 +113,19 @@
                 var selectedDate = document.getElementById('SelectedDate').value;
               
                 /* UniqueID = "ctl00$ctl00$ContentPlaceHolderMain$ContractViewContentPlaceHolder$ProjectionGridView$ctl02$endDateTextBox" */
-                window.opener.document.forms[0].elements[receivingControlClientId].value = selectedDate;               
+                window.opener.document.forms[0].elements[receivingControlClientId].value = selectedDate;
+
+                /*var textBox = window.opener.document.forms[0].ctl00$ctl00$ContentPlaceHolderMain$ContractViewContentPlaceHolder$ProjectionGridView$ctl02.getElementById(receivingControlClientId); */
+                /* textBox.value = selectedDate; */
+
+                /*
+                if (dateType == "ProjectionStart") {
+                    window.opener.document.forms[0].elements["ctl00$ctl00$ContentPlaceHolderMain$ContractViewContentPlaceHolder$ProjectionGridView$ctl02$startDateTextBox"].value = selectedDate;
+
+                } else if (dateType == "ProjectionEnd") {
+                    window.opener.document.forms[0].elements["ctl00$ctl00$ContentPlaceHolderMain$ContractViewContentPlaceHolder$ProjectionGridView$ctl02$endDateTextBox"].value = selectedDate;
+                }
+                */
             }
             
             top.window.opener = top;
